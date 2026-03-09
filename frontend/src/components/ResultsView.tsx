@@ -75,7 +75,7 @@ export default function ResultsView({ result, sport, onReset }: Props) {
                 <StatCard
                   key={key}
                   label={formatStatLabel(key)}
-                  value={formatStatValue(value)}
+                  value={formatStatValue(value, key)}
                 />
               ))}
             </div>
@@ -121,9 +121,20 @@ function formatStatLabel(key: string): string {
     .replace("Spm", "SPM");
 }
 
-function formatStatValue(value: number | string | null): string {
+// Keys whose values are percentages or scores, not angles
+const NON_ANGLE_KEYS = new Set([
+  "total_frames_analyzed",
+  "balance_score",
+  "symmetry_score",
+  "head_stability",
+  "detected_exercise",
+  "rep_count",
+]);
+
+function formatStatValue(value: number | string | null, key?: string): string {
   if (value === null || value === undefined) return "N/A";
   if (typeof value === "string") return value;
   if (Number.isInteger(value)) return value.toString();
+  if (key && NON_ANGLE_KEYS.has(key)) return value.toFixed(1);
   return `${value}\u00b0`;
 }

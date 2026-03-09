@@ -177,7 +177,7 @@ const guidanceByCategory: Record<string, Record<string, CategoryGuidance>> = {
         "Use a mirror or video feedback to compare both sides. Hold your weaker side for a few extra breaths to help even out strength and flexibility.",
       drillTip:
         "Practice poses facing a mirror and compare your left and right sides. Note which side feels tighter and give it extra attention.",
-      idealRange: "<10\u00b0 side-to-side difference",
+      idealRange: "<20\u00b0 side-to-side difference",
       illustrationKey: "symmetry",
     },
   },

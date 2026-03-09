@@ -155,17 +155,17 @@ def analyze_symmetry(kp: np.ndarray, frame_idx: int) -> list[CoachingTip]:
     )
     arm_diff = abs(left_elbow_angle - right_elbow_angle)
 
-    if arm_diff > 20:
+    if arm_diff > 35:
         tips.append(CoachingTip(
             category="Symmetry", body_part="elbows",
-            angle_value=round(arm_diff, 1), threshold=20.0,
+            angle_value=round(arm_diff, 1), threshold=35.0,
             message=f"Arm angles differ by {arm_diff:.0f}\u00b0 \u2014 this asymmetry creates muscular imbalances. Use a mirror to match both sides.",
             severity=Severity.CRITICAL, frame_range=(frame_idx, frame_idx),
         ))
-    elif arm_diff > 10:
+    elif arm_diff > 20:
         tips.append(CoachingTip(
             category="Symmetry", body_part="elbows",
-            angle_value=round(arm_diff, 1), threshold=10.0,
+            angle_value=round(arm_diff, 1), threshold=20.0,
             message=f"Arm angles differ by {arm_diff:.0f}\u00b0. Work on matching both sides for balanced muscle development.",
             severity=Severity.WARNING, frame_range=(frame_idx, frame_idx),
         ))
@@ -179,17 +179,17 @@ def analyze_symmetry(kp: np.ndarray, frame_idx: int) -> list[CoachingTip]:
     )
     leg_diff = abs(left_knee_angle - right_knee_angle)
 
-    if leg_diff > 20:
+    if leg_diff > 35:
         tips.append(CoachingTip(
             category="Symmetry", body_part="knees",
-            angle_value=round(leg_diff, 1), threshold=20.0,
+            angle_value=round(leg_diff, 1), threshold=35.0,
             message=f"Leg angles differ by {leg_diff:.0f}\u00b0 \u2014 asymmetric poses create imbalances over time. Hold your weaker side longer.",
             severity=Severity.CRITICAL, frame_range=(frame_idx, frame_idx),
         ))
-    elif leg_diff > 10:
+    elif leg_diff > 20:
         tips.append(CoachingTip(
             category="Symmetry", body_part="knees",
-            angle_value=round(leg_diff, 1), threshold=10.0,
+            angle_value=round(leg_diff, 1), threshold=20.0,
             message=f"Leg angles differ by {leg_diff:.0f}\u00b0. Focus on equal engagement on both sides.",
             severity=Severity.WARNING, frame_range=(frame_idx, frame_idx),
         ))

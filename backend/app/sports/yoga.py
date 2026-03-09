@@ -26,7 +26,7 @@ def _mock_keypoints(w: int, h: int) -> np.ndarray:
         [cx + 15, cy + 110, 0.85],  # right_ankle
         [cx, cy + 0, 0.91],         # pelvis
     ])
-    kp[:, :2] += np.random.normal(0, 3, kp[:, :2].shape)
+    kp[:, :2] += np.random.normal(0, 1, kp[:, :2].shape)
     return kp
 
 
