@@ -8,6 +8,8 @@ from app.services.coach_logic.snowboard import SnowboardCoach
 from app.services.coach_logic.skiing import SkiingCoach
 from app.services.coach_logic.running import RunningCoach
 from app.services.coach_logic.home_workout import HomeWorkoutCoach, classify_exercise
+from app.services.coach_logic.golf import GolfCoach
+from app.services.coach_logic.yoga import YogaCoach
 
 
 # --------------------------------------------------------------------------
@@ -219,6 +221,81 @@ def test_home_workout_coach_summary():
 
 
 # --------------------------------------------------------------------------
+# Golf coach
+# --------------------------------------------------------------------------
+
+def _golf_kp():
+    kp = np.zeros((12, 3))
+    kp[0] = [160, 30, 0.9]   # head
+    kp[1] = [160, 60, 0.9]   # neck
+    kp[2] = [145, 80, 0.9]   # lead_shoulder
+    kp[3] = [175, 80, 0.9]   # trail_shoulder
+    kp[4] = [130, 110, 0.9]  # lead_elbow
+    kp[5] = [190, 110, 0.9]  # trail_elbow
+    kp[6] = [120, 140, 0.9]  # lead_wrist
+    kp[7] = [200, 140, 0.9]  # trail_wrist
+    kp[8] = [150, 140, 0.9]  # lead_hip
+    kp[9] = [170, 140, 0.9]  # trail_hip
+    kp[10] = [148, 200, 0.9] # lead_knee
+    kp[11] = [172, 200, 0.9] # trail_knee
+    return kp
+
+
+def test_golf_coach_basic():
+    coach = GolfCoach()
+    kp = _golf_kp()
+    tips = coach.analyze_frame(kp, 0)
+    assert isinstance(tips, list)
+
+
+def test_golf_coach_summary():
+    coach = GolfCoach()
+    keypoints = [_golf_kp() for _ in range(5)]
+    stats = coach.compute_keypoints_summary(keypoints)
+    assert stats["total_frames_analyzed"] == 5
+    assert "avg_spine_angle" in stats
+
+
+# --------------------------------------------------------------------------
+# Yoga coach
+# --------------------------------------------------------------------------
+
+def _yoga_kp():
+    kp = np.zeros((15, 3))
+    kp[0] = [160, 30, 0.9]   # head
+    kp[1] = [160, 55, 0.9]   # neck
+    kp[2] = [145, 75, 0.9]   # left_shoulder
+    kp[3] = [175, 75, 0.9]   # right_shoulder
+    kp[4] = [130, 105, 0.9]  # left_elbow
+    kp[5] = [190, 105, 0.9]  # right_elbow
+    kp[6] = [125, 135, 0.9]  # left_wrist
+    kp[7] = [195, 135, 0.9]  # right_wrist
+    kp[8] = [150, 140, 0.9]  # left_hip
+    kp[9] = [170, 140, 0.9]  # right_hip
+    kp[10] = [148, 200, 0.9] # left_knee
+    kp[11] = [172, 200, 0.9] # right_knee
+    kp[12] = [145, 260, 0.9] # left_ankle
+    kp[13] = [175, 260, 0.9] # right_ankle
+    kp[14] = [160, 135, 0.9] # pelvis
+    return kp
+
+
+def test_yoga_coach_basic():
+    coach = YogaCoach()
+    kp = _yoga_kp()
+    tips = coach.analyze_frame(kp, 0)
+    assert isinstance(tips, list)
+
+
+def test_yoga_coach_summary():
+    coach = YogaCoach()
+    keypoints = [_yoga_kp() for _ in range(4)]
+    stats = coach.compute_keypoints_summary(keypoints)
+    assert stats["total_frames_analyzed"] == 4
+    assert "avg_spine_alignment" in stats
+
+
+# --------------------------------------------------------------------------
 # Sport registry
 # --------------------------------------------------------------------------
 
@@ -233,9 +310,13 @@ def test_sport_registry():
     assert "skiing" in sport_ids
     assert "running" in sport_ids
     assert "home_workout" in sport_ids
+    assert "golf" in sport_ids
+    assert "yoga" in sport_ids
 
     assert SportRegistry.has_sport("snowboard")
-    assert not SportRegistry.has_sport("golf")
+    assert SportRegistry.has_sport("golf")
+    assert SportRegistry.has_sport("yoga")
+    assert not SportRegistry.has_sport("tennis")
 
     defn = SportRegistry.get_definition("snowboard")
     assert defn.num_keypoints == 10

@@ -135,6 +135,98 @@ const guidanceByCategory: Record<string, Record<string, CategoryGuidance>> = {
       illustrationKey: "cadence",
     },
   },
+  yoga: {
+    "Alignment": {
+      title: "Spine Alignment",
+      whatIsWrong:
+        "Your spine is misaligned, reducing pose effectiveness and increasing strain on your back. Poor alignment limits energy flow and can lead to compensatory patterns elsewhere.",
+      howToFix:
+        "Engage your core and focus on stacking each vertebra. Imagine a string pulling the crown of your head toward the ceiling while your tailbone reaches toward the floor.",
+      drillTip:
+        "Practice mountain pose (Tadasana) with your back against a wall. Your head, shoulder blades, and sacrum should all touch the wall.",
+      idealRange: "<10\u00b0 deviation from vertical",
+      illustrationKey: "alignment",
+    },
+    "Balance": {
+      title: "Weight Distribution",
+      whatIsWrong:
+        "Your weight is unevenly distributed between left and right sides, stressing joints asymmetrically and reducing stability in standing poses.",
+      howToFix:
+        "Press evenly through both feet, spreading your toes wide. Engage your inner thighs and activate stabiliser muscles through the ankles and hips.",
+      drillTip:
+        "Practice tree pose (Vrksasana) with your eyes closed for 30 seconds each side. This trains proprioception and balance awareness.",
+      idealRange: "Even left-right loading",
+      illustrationKey: "balance",
+    },
+    "Joint Angles": {
+      title: "Joint Safety",
+      whatIsWrong:
+        "Your knees or elbows are hyperextending past their safe range of motion, risking ligament and joint capsule damage over time.",
+      howToFix:
+        "Maintain a micro-bend in all standing poses. Never lock out your knees or elbows \u2014 think of keeping a soft, energised engagement in every joint.",
+      drillTip:
+        "Place your hand behind your knee in standing poses to feel for the micro-bend. You should feel a slight gap, not a locked-out joint.",
+      idealRange: "Knees 170\u00b0\u2013180\u00b0 (not hyperextended)",
+      illustrationKey: "jointAngles",
+    },
+    "Symmetry": {
+      title: "Left-Right Symmetry",
+      whatIsWrong:
+        "Your left and right sides show different angles in matching poses, creating muscular imbalances that can lead to injury and reduced flexibility over time.",
+      howToFix:
+        "Use a mirror or video feedback to compare both sides. Hold your weaker side for a few extra breaths to help even out strength and flexibility.",
+      drillTip:
+        "Practice poses facing a mirror and compare your left and right sides. Note which side feels tighter and give it extra attention.",
+      idealRange: "<10\u00b0 side-to-side difference",
+      illustrationKey: "symmetry",
+    },
+  },
+  golf: {
+    "Spine Angle": {
+      title: "Spine Angle",
+      whatIsWrong:
+        "You're losing your spine angle during the swing \u2014 either standing up too tall or hunching over too much. This leads to inconsistent ball striking and loss of power.",
+      howToFix:
+        "Maintain a 30-45\u00b0 forward tilt from your hips throughout the swing. Your spine angle at address should be the same at impact. Think about bending from the hips, not the waist.",
+      drillTip:
+        "Stand with your back against a wall at address angle. Make slow swings keeping your back touching the wall to build muscle memory for consistent spine angle.",
+      idealRange: "30\u00b0\u201345\u00b0 forward tilt",
+      illustrationKey: "spineAngle",
+    },
+    "Hip Rotation": {
+      title: "Hip Rotation",
+      whatIsWrong:
+        "Insufficient hip turn is robbing you of power. Without proper shoulder-hip separation, you're relying on your arms to generate clubhead speed.",
+      howToFix:
+        "Initiate the downswing with your hips, not your arms. Feel your lead hip clearing toward the target while your shoulders stay back \u2014 this creates the X-factor that generates power.",
+      drillTip:
+        "Practice the chair drill: sit on the edge of a chair and make backswing turns. You should feel your trail hip load behind you while your lead hip stays relatively quiet.",
+      idealRange: "40\u00b0\u201350\u00b0 separation",
+      illustrationKey: "hipRotation",
+    },
+    "Arm Extension": {
+      title: "Arm Extension",
+      whatIsWrong:
+        "Your lead arm is bending through impact (chicken wing), causing inconsistent contact, loss of distance, and a weak, glancing blow on the ball.",
+      howToFix:
+        "Keep your lead arm straight (not rigid) through impact and into the follow-through. The arm should extend fully at impact with the angle near 170\u00b0.",
+      drillTip:
+        "Place a towel under your lead armpit and make half swings. If the towel falls before impact, your arm is disconnecting and likely bending.",
+      idealRange: "165\u00b0\u2013180\u00b0 at impact",
+      illustrationKey: "armExtension",
+    },
+    "Head Movement": {
+      title: "Head Movement",
+      whatIsWrong:
+        "You're swaying or sliding laterally during the swing. This moves your swing center, making it hard to return the club to the ball consistently.",
+      howToFix:
+        "Keep your head steady as a pivot point throughout the swing. Allow it to rotate with your body but minimize lateral movement. Your head should stay within a small window over the ball.",
+      drillTip:
+        "On a sunny day, practice swings while watching your head's shadow on the ground. It should stay nearly still. Indoors, have a friend hold a club gently on top of your head as a reference.",
+      idealRange: "<2 inches lateral",
+      illustrationKey: "headMovement",
+    },
+  },
   home_workout: {
     "Squat Depth": {
       title: "Squat Deeper",

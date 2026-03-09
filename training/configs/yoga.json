@@ -1,0 +1,15 @@
+{
+  "sport": "yoga",
+  "num_keypoints": 15,
+  "input_size": [256, 192],
+  "bodyparts": [
+    "head", "neck", "left_shoulder", "right_shoulder", "left_elbow", "right_elbow",
+    "left_wrist", "right_wrist", "left_hip", "right_hip", "left_knee", "right_knee",
+    "left_ankle", "right_ankle", "pelvis"
+  ],
+  "swap_pairs": [
+    [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], [12, 13]
+  ],
+  "model_filename": "yoga_pose_model.pt",
+  "note": "Front/side view with left-right symmetric swap pairs"
+}

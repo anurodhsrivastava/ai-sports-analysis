@@ -1,0 +1,12 @@
+{
+  "sport": "golf",
+  "num_keypoints": 12,
+  "input_size": [256, 192],
+  "bodyparts": [
+    "head", "neck", "lead_shoulder", "trail_shoulder", "lead_elbow", "trail_elbow",
+    "lead_wrist", "trail_wrist", "lead_hip", "trail_hip", "lead_knee", "trail_knee"
+  ],
+  "swap_pairs": [[2, 3], [4, 5], [6, 7], [8, 9], [10, 11]],
+  "model_filename": "golf_pose_model.pt",
+  "note": "Lead/trail symmetry swap pairs for data augmentation"
+}

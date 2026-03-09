@@ -18,6 +18,18 @@ const ForwardLeanDiagram = lazy(() => import("./running/ForwardLeanDiagram"));
 const ArmSwingDiagram = lazy(() => import("./running/ArmSwingDiagram"));
 const CadenceDiagram = lazy(() => import("./running/CadenceDiagram"));
 
+// Yoga illustrations
+const AlignmentDiagram = lazy(() => import("./yoga/AlignmentDiagram"));
+const BalanceDiagram = lazy(() => import("./yoga/BalanceDiagram"));
+const JointAnglesDiagram = lazy(() => import("./yoga/JointAnglesDiagram"));
+const SymmetryDiagram = lazy(() => import("./yoga/SymmetryDiagram"));
+
+// Golf illustrations
+const SpineAngleDiagram = lazy(() => import("./golf/SpineAngleDiagram"));
+const HipRotationDiagram = lazy(() => import("./golf/HipRotationDiagram"));
+const ArmExtensionDiagram = lazy(() => import("./golf/ArmExtensionDiagram"));
+const HeadMovementDiagram = lazy(() => import("./golf/HeadMovementDiagram"));
+
 // Home workout illustrations
 const SquatDepthDiagram = lazy(() => import("./home_workout/SquatDepthDiagram"));
 const PushupFormDiagram = lazy(() => import("./home_workout/PushupFormDiagram"));
@@ -41,6 +53,18 @@ const illustrationsBySport: Record<string, Record<string, ComponentType>> = {
     forwardLean: ForwardLeanDiagram,
     armSwing: ArmSwingDiagram,
     cadence: CadenceDiagram,
+  },
+  yoga: {
+    alignment: AlignmentDiagram,
+    balance: BalanceDiagram,
+    jointAngles: JointAnglesDiagram,
+    symmetry: SymmetryDiagram,
+  },
+  golf: {
+    spineAngle: SpineAngleDiagram,
+    hipRotation: HipRotationDiagram,
+    armExtension: ArmExtensionDiagram,
+    headMovement: HeadMovementDiagram,
   },
   home_workout: {
     squatDepth: SquatDepthDiagram,
