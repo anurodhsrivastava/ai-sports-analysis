@@ -1,0 +1,12 @@
+{
+  "sport": "running",
+  "num_keypoints": 12,
+  "input_size": [256, 384],
+  "bodyparts": [
+    "head", "neck", "shoulder", "elbow", "wrist", "hip",
+    "knee", "ankle", "toe", "heel", "mid_torso", "pelvis"
+  ],
+  "swap_pairs": [],
+  "model_filename": "running_pose_model.pt",
+  "note": "Side-view only, no symmetric swap pairs"
+}

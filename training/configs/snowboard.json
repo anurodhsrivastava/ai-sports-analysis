@@ -1,0 +1,12 @@
+{
+  "sport": "snowboard",
+  "num_keypoints": 10,
+  "input_size": [256, 384],
+  "bodyparts": [
+    "head", "nose_shoulder", "tail_shoulder", "center_hips",
+    "front_knee", "back_knee", "front_ankle", "back_ankle",
+    "board_nose", "board_tail"
+  ],
+  "swap_pairs": [[4, 5], [6, 7]],
+  "model_filename": "snowboard_pose_model.pt"
+}

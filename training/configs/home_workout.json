@@ -1,0 +1,13 @@
+{
+  "sport": "home_workout",
+  "num_keypoints": 13,
+  "input_size": [256, 384],
+  "bodyparts": [
+    "head", "left_shoulder", "right_shoulder",
+    "left_elbow", "right_elbow", "left_wrist", "right_wrist",
+    "left_hip", "right_hip",
+    "left_knee", "right_knee", "left_ankle", "right_ankle"
+  ],
+  "swap_pairs": [[1, 2], [3, 4], [5, 6], [7, 8], [9, 10], [11, 12]],
+  "model_filename": "home_workout_pose_model.pt"
+}

@@ -1,0 +1,13 @@
+{
+  "sport": "skiing",
+  "num_keypoints": 14,
+  "input_size": [256, 384],
+  "bodyparts": [
+    "head", "left_shoulder", "right_shoulder", "center_hips",
+    "left_knee", "right_knee", "left_ankle", "right_ankle",
+    "left_ski_tip", "left_ski_tail", "right_ski_tip", "right_ski_tail",
+    "left_pole_tip", "right_pole_tip"
+  ],
+  "swap_pairs": [[1, 2], [4, 5], [6, 7], [8, 10], [9, 11], [12, 13]],
+  "model_filename": "skiing_pose_model.pt"
+}
