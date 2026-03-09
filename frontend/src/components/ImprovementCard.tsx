@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import type { CoachingTip, CategoryBreakdown, Severity } from "../types/analysis";
 import type { SportId } from "../data/sportDefinitions";
 import { getGuidance } from "../data/coachingGuidance";
-import { getIllustration } from "./illustrations";
+import { IllustrationRenderer } from "./illustrations";
 
 const severityStyle: Record<Severity, { border: string; badge: string; badgeBg: string }> = {
   ok: { border: "border-emerald-700", badge: "text-emerald-400", badgeBg: "bg-emerald-600" },
@@ -28,8 +28,6 @@ export default function ImprovementCard({ sport, breakdown, tips, onSeek }: Prop
   const [expanded, setExpanded] = useState(false);
   const guidance = getGuidance(sport, breakdown.category);
   const style = severityStyle[breakdown.worst_severity];
-  const Illustration = getIllustration(sport, guidance.illustrationKey);
-
   const worstTip = tips.reduce<CoachingTip | null>((worst, tip) => {
     if (!worst) return tip;
     const order: Record<Severity, number> = { ok: 0, warning: 1, critical: 2 };
@@ -62,15 +60,13 @@ export default function ImprovementCard({ sport, breakdown, tips, onSeek }: Prop
       </div>
 
       {/* Illustration */}
-      {Illustration && (
-        <div className="px-5 pt-4">
-          <div className="bg-slate-900/60 rounded-lg p-3">
-            <Suspense fallback={<div className="h-32 flex items-center justify-center text-slate-500 text-sm">Loading...</div>}>
-              <Illustration />
-            </Suspense>
-          </div>
+      <div className="px-5 pt-4">
+        <div className="bg-slate-900/60 rounded-lg p-3">
+          <Suspense fallback={<div className="h-32 flex items-center justify-center text-slate-500 text-sm">Loading...</div>}>
+            <IllustrationRenderer sport={sport} illustrationKey={guidance.illustrationKey} />
+          </Suspense>
         </div>
-      )}
+      </div>
 
       {/* How to fix */}
       <div className="px-5 pt-4">

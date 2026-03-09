@@ -1,4 +1,4 @@
-import { lazy, type ComponentType } from "react";
+import { lazy, createElement, type ComponentType } from "react";
 import type { SportId } from "../../data/sportDefinitions";
 
 // Snowboard illustrations
@@ -52,4 +52,10 @@ const illustrationsBySport: Record<string, Record<string, ComponentType>> = {
 
 export function getIllustration(sport: SportId, key: string): ComponentType | null {
   return illustrationsBySport[sport]?.[key] ?? null;
+}
+
+export function IllustrationRenderer({ sport, illustrationKey }: { sport: SportId; illustrationKey: string }) {
+  const Component = illustrationsBySport[sport]?.[illustrationKey];
+  if (!Component) return null;
+  return createElement(Component);
 }
