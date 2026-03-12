@@ -1,0 +1,184 @@
+{
+  "app": {
+    "title": "AIスポーツコーチ",
+    "signIn": "ログイン",
+    "signOut": "ログアウト"
+  },
+  "upload": {
+    "heading": "AIスポーツコーチ",
+    "subheading": "動画をアップロードしてAIによるテクニック分析を受けましょう",
+    "dropText": "動画をここにドロップするかタップして選択",
+    "fileTypes": "MP4、AVI、MOV、MKV、WebM（最大500MB）",
+    "uploading": "アップロード中... {{percent}}%",
+    "invalidFile": "動画ファイル（MP4、AVI、MOV、MKV、WebM）をアップロードしてください。"
+  },
+  "processing": {
+    "analyzing": "テクニックを分析中...",
+    "subtitle": "姿勢推定とバイオメカニクス分析を実行しています",
+    "timeRemaining": "推定残り時間",
+    "almostDone": "もうすぐ完了...",
+    "minutes": "約{{count}}分",
+    "seconds": "約{{count}}秒",
+    "steps": {
+      "extracting": "フレームを抽出中",
+      "detecting": "姿勢キーポイントを検出中",
+      "computing": "関節角度を計算中",
+      "generating": "コーチングのヒントを生成中"
+    },
+    "didYouKnow": "豆知識"
+  },
+  "results": {
+    "title": "分析結果",
+    "areasToImprove": "{{count}}件の改善点",
+    "lookingGood": "いい感じです！",
+    "saveResults": "結果を保存",
+    "analyzeAnother": "別の動画を分析",
+    "framesAnalyzed": "分析フレーム数",
+    "avgFrontKnee": "前膝の平均角度",
+    "avgShoulderAlign": "肩の平均アライメント",
+    "noIssues": "大きなテクニックの問題は検出されませんでした。",
+    "wrongVideo": "動画の不一致を検出",
+    "wrongVideoDesc": "動画が選択されたスポーツと一致しないため、分析がスキップされました。",
+    "uploadCorrect": "正しい動画をアップロード"
+  },
+  "improve": {
+    "title": "改善方法",
+    "howToFix": "修正方法",
+    "drill": "ドリル：",
+    "yourAvg": "あなたの平均：",
+    "idealRange": "理想的な範囲：",
+    "seeInVideo": "動画で確認する",
+    "occurrences": "{{count}}回検出",
+    "showDetails": "{{count}}件の詳細を表示",
+    "hideDetails": "{{count}}件の詳細を非表示",
+    "frame": "フレーム {{start}}～{{end}}",
+    "overallScore": "総合スコア",
+    "progressImproved": "前回のセッションから向上",
+    "progressDeclined": "前回のセッションから低下",
+    "drills": "おすすめドリル",
+    "drillDuration": "所要時間：{{duration}}",
+    "drillDifficulty": "難易度：{{difficulty}}",
+    "focusFirst": "まずこれに取り組もう",
+    "grade": "評価",
+    "score": "スコア",
+    "outOf": "{{max}}中",
+    "beginner": "初級",
+    "intermediate": "中級",
+    "advanced": "上級",
+    "recommendedDrill": "おすすめ"
+  },
+  "severity": {
+    "ok": "良好",
+    "warning": "注意",
+    "critical": "要改善"
+  },
+  "login": {
+    "saveTitle": "結果を保存",
+    "saveSubtitle": "ログインして分析結果を保存し、上達の記録を残しましょう。",
+    "continueGoogle": "Googleで続行",
+    "continueFacebook": "Facebookで続行",
+    "continueEmail": "メールで続行",
+    "maybeLater": "あとで",
+    "registerTitle": "アカウント作成",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "displayName": "表示名",
+    "register": "登録",
+    "login": "ログイン",
+    "haveAccount": "アカウントをお持ちですか？",
+    "noAccount": "アカウントをお持ちでないですか？"
+  },
+  "wishlist": {
+    "title": "このスポーツはまだ対応していません",
+    "subtitle": "動画から{{sport}}が検出されました。対応時に通知を受け取りますか？",
+    "emailPlaceholder": "メールアドレス（任意）",
+    "notifyMe": "通知を受け取る",
+    "thanks": "ありがとうございます！対応時にお知らせします。"
+  },
+  "pricing": {
+    "title": "Proにアップグレード",
+    "subtitle": "コーチング分析をさらに活用しましょう",
+    "free": "無料",
+    "pro": "Pro",
+    "freePriceLabel": "永久無料",
+    "proPriceLabel": "月額$9.99",
+    "freeFeature1": "スポーツごとに動画1本保存",
+    "freeFeature2": "基本分析",
+    "freeFeature3": "コーチングのヒント",
+    "proFeature1": "スポーツごとに動画50本保存",
+    "proFeature2": "上達の記録",
+    "proFeature3": "優先サポート",
+    "proFeature4": "上級ドリル",
+    "currentPlan": "現在のプラン",
+    "upgrade": "Proにアップグレード",
+    "discountCode": "割引コード",
+    "apply": "適用"
+  },
+  "admin": {
+    "title": "管理者ダッシュボード",
+    "dashboard": "ダッシュボード",
+    "users": "ユーザー",
+    "discountCodes": "割引コード",
+    "analyses": "分析",
+    "totalUsers": "総ユーザー数",
+    "proUsers": "Proユーザー",
+    "totalAnalyses": "総分析数",
+    "activeSubscriptions": "有効なサブスクリプション",
+    "search": "検索...",
+    "role": "役割",
+    "tier": "プラン",
+    "actions": "操作",
+    "createCode": "割引コードを作成",
+    "code": "コード",
+    "percentOff": "割引率（%）",
+    "amountOff": "割引額（$）",
+    "maxUses": "最大使用回数",
+    "validUntil": "有効期限",
+    "timesUsed": "使用回数",
+    "active": "有効",
+    "deactivate": "無効にする",
+    "create": "作成",
+    "backToApp": "アプリに戻る"
+  },
+  "sports": {
+    "snowboarding": "スノーボード",
+    "skiing": "スキー",
+    "skateboarding": "スケートボード",
+    "surfing": "サーフィン"
+  },
+  "errors": {
+    "somethingWrong": "エラーが発生しました",
+    "tryAgain": "もう一度試す",
+    "quotaExceeded": "保存容量の上限に達しました。Proにアップグレードして容量を増やしましょう。",
+    "paymentFailed": "お支払いを処理できませんでした。"
+  },
+  "nav": {
+    "myVideos": "マイ動画",
+    "pricing": "料金プラン",
+    "admin": "管理者",
+    "language": "言語"
+  },
+  "myVideos": {
+    "title": "マイ動画",
+    "noVideos": "保存された動画はまだありません。動画を分析して保存すると、ここに表示されます。",
+    "deleteConfirm": "この分析を削除しますか？この操作は元に戻せません。",
+    "upgradeForProgress": "Proにアップグレード",
+    "scoreOverTime": "スコアの推移"
+  },
+  "compare": {
+    "title": "比較",
+    "toggle": "比較する",
+    "cancel": "比較をキャンセル",
+    "selectTwo": "比較する分析を2つ選択してください",
+    "sameSportOnly": "同じスポーツの分析を2つ選択してください",
+    "improved": "向上",
+    "regressed": "低下",
+    "unchanged": "変化なし",
+    "scoreDelta": "スコアの変化",
+    "categories": "カテゴリ別内訳",
+    "stats": "統計の比較"
+  },
+  "stats": {
+    "target": "目標: {{range}}"
+  }
+}

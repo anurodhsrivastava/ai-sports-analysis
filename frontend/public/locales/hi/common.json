@@ -1,0 +1,184 @@
+{
+  "app": {
+    "title": "AI स्पोर्ट्स कोच",
+    "signIn": "साइन इन",
+    "signOut": "साइन आउट"
+  },
+  "upload": {
+    "heading": "AI स्पोर्ट्स कोच",
+    "subheading": "AI-संचालित तकनीक विश्लेषण के लिए एक वीडियो अपलोड करें",
+    "dropText": "अपना वीडियो यहाँ छोड़ें या ब्राउज़ करने के लिए टैप करें",
+    "fileTypes": "MP4, AVI, MOV, MKV, या WebM 500MB तक",
+    "uploading": "अपलोड हो रहा है... {{percent}}%",
+    "invalidFile": "कृपया एक वीडियो फ़ाइल अपलोड करें (MP4, AVI, MOV, MKV, या WebM)।"
+  },
+  "processing": {
+    "analyzing": "आपकी तकनीक का विश्लेषण हो रहा है...",
+    "subtitle": "पोज़ एस्टिमेशन और बायोमैकेनिकल विश्लेषण चल रहा है",
+    "timeRemaining": "अनुमानित शेष समय",
+    "almostDone": "लगभग हो गया...",
+    "minutes": "~{{count}} मिनट",
+    "seconds": "~{{count}} सेकंड",
+    "steps": {
+      "extracting": "फ़्रेम निकाले जा रहे हैं",
+      "detecting": "पोज़ कीपॉइंट्स का पता लगाया जा रहा है",
+      "computing": "जोड़ों के कोण की गणना हो रही है",
+      "generating": "कोचिंग सुझाव तैयार किए जा रहे हैं"
+    },
+    "didYouKnow": "क्या आप जानते हैं?"
+  },
+  "results": {
+    "title": "विश्लेषण परिणाम",
+    "areasToImprove": "{{count}} सुधार क्षेत्र",
+    "lookingGood": "बहुत अच्छा लग रहा है!",
+    "saveResults": "परिणाम सहेजें",
+    "analyzeAnother": "दूसरा विश्लेषण करें",
+    "framesAnalyzed": "विश्लेषित फ़्रेम",
+    "avgFrontKnee": "औसत फ्रंट घुटना",
+    "avgShoulderAlign": "औसत कंधा संरेखण",
+    "noIssues": "कोई प्रमुख तकनीकी समस्या नहीं पाई गई।",
+    "wrongVideo": "गलत वीडियो का पता चला",
+    "wrongVideoDesc": "विश्लेषण छोड़ दिया गया क्योंकि वीडियो चयनित खेल से मेल नहीं खाता।",
+    "uploadCorrect": "सही वीडियो अपलोड करें"
+  },
+  "improve": {
+    "title": "कैसे सुधारें",
+    "howToFix": "कैसे ठीक करें",
+    "drill": "अभ्यास:",
+    "yourAvg": "आपका औसत:",
+    "idealRange": "आदर्श सीमा:",
+    "seeInVideo": "अपने वीडियो में देखें",
+    "occurrences": "{{count}} बार",
+    "showDetails": "{{count}} विस्तृत घटनाएँ दिखाएँ",
+    "hideDetails": "{{count}} विस्तृत घटनाएँ छिपाएँ",
+    "frame": "फ़्रेम {{start}}–{{end}}",
+    "overallScore": "कुल स्कोर",
+    "progressImproved": "पिछले सत्र से सुधार हुआ",
+    "progressDeclined": "पिछले सत्र से गिरावट हुई",
+    "drills": "अनुशंसित अभ्यास",
+    "drillDuration": "अवधि: {{duration}}",
+    "drillDifficulty": "कठिनाई: {{difficulty}}",
+    "focusFirst": "पहले इन पर ध्यान दें",
+    "grade": "ग्रेड",
+    "score": "स्कोर",
+    "outOf": "{{max}} में से",
+    "beginner": "शुरुआती",
+    "intermediate": "मध्यम",
+    "advanced": "उन्नत",
+    "recommendedDrill": "अनुशंसित"
+  },
+  "severity": {
+    "ok": "ठीक",
+    "warning": "चेतावनी",
+    "critical": "गंभीर"
+  },
+  "login": {
+    "saveTitle": "अपने परिणाम सहेजें",
+    "saveSubtitle": "अपना विश्लेषण सहेजने और समय के साथ प्रगति ट्रैक करने के लिए साइन इन करें।",
+    "continueGoogle": "Google से जारी रखें",
+    "continueFacebook": "Facebook से जारी रखें",
+    "continueEmail": "ईमेल से जारी रखें",
+    "maybeLater": "शायद बाद में",
+    "registerTitle": "खाता बनाएँ",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "displayName": "प्रदर्शन नाम",
+    "register": "पंजीकरण करें",
+    "login": "लॉग इन",
+    "haveAccount": "पहले से खाता है?",
+    "noAccount": "खाता नहीं है?"
+  },
+  "wishlist": {
+    "title": "खेल अभी उपलब्ध नहीं है",
+    "subtitle": "हमने आपके वीडियो में {{sport}} का पता लगाया। जब यह उपलब्ध हो तो क्या आप सूचित होना चाहेंगे?",
+    "emailPlaceholder": "आपका ईमेल (वैकल्पिक)",
+    "notifyMe": "मुझे सूचित करें",
+    "thanks": "धन्यवाद! हम आपको बताएँगे।"
+  },
+  "pricing": {
+    "title": "Pro में अपग्रेड करें",
+    "subtitle": "अपने कोचिंग विश्लेषण से अधिक प्राप्त करें",
+    "free": "मुफ़्त",
+    "pro": "Pro",
+    "freePriceLabel": "हमेशा मुफ़्त",
+    "proPriceLabel": "$9.99/माह",
+    "freeFeature1": "प्रति खेल 1 सहेजा गया वीडियो",
+    "freeFeature2": "बुनियादी विश्लेषण",
+    "freeFeature3": "कोचिंग सुझाव",
+    "proFeature1": "प्रति खेल 50 सहेजे गए वीडियो",
+    "proFeature2": "प्रगति ट्रैकिंग",
+    "proFeature3": "प्राथमिकता सहायता",
+    "proFeature4": "उन्नत अभ्यास",
+    "currentPlan": "वर्तमान योजना",
+    "upgrade": "Pro में अपग्रेड करें",
+    "discountCode": "छूट कोड",
+    "apply": "लागू करें"
+  },
+  "admin": {
+    "title": "एडमिन डैशबोर्ड",
+    "dashboard": "डैशबोर्ड",
+    "users": "उपयोगकर्ता",
+    "discountCodes": "छूट कोड",
+    "analyses": "विश्लेषण",
+    "totalUsers": "कुल उपयोगकर्ता",
+    "proUsers": "Pro उपयोगकर्ता",
+    "totalAnalyses": "कुल विश्लेषण",
+    "activeSubscriptions": "सक्रिय सदस्यताएँ",
+    "search": "खोजें...",
+    "role": "भूमिका",
+    "tier": "स्तर",
+    "actions": "कार्य",
+    "createCode": "छूट कोड बनाएँ",
+    "code": "कोड",
+    "percentOff": "% छूट",
+    "amountOff": "राशि छूट ($)",
+    "maxUses": "अधिकतम उपयोग",
+    "validUntil": "तक वैध",
+    "timesUsed": "उपयोग की बार",
+    "active": "सक्रिय",
+    "deactivate": "निष्क्रिय करें",
+    "create": "बनाएँ",
+    "backToApp": "ऐप पर वापस जाएँ"
+  },
+  "sports": {
+    "snowboarding": "स्नोबोर्डिंग",
+    "skiing": "स्कीइंग",
+    "skateboarding": "स्केटबोर्डिंग",
+    "surfing": "सर्फ़िंग"
+  },
+  "errors": {
+    "somethingWrong": "कुछ गलत हो गया",
+    "tryAgain": "फिर से कोशिश करें",
+    "quotaExceeded": "स्टोरेज सीमा पूरी हो गई। अधिक के लिए Pro में अपग्रेड करें।",
+    "paymentFailed": "भुगतान प्रक्रिया नहीं हो सकी।"
+  },
+  "nav": {
+    "myVideos": "मेरे वीडियो",
+    "pricing": "मूल्य निर्धारण",
+    "admin": "एडमिन",
+    "language": "भाषा"
+  },
+  "myVideos": {
+    "title": "मेरे वीडियो",
+    "noVideos": "अभी तक कोई सहेजे गए वीडियो नहीं हैं। एक वीडियो का विश्लेषण करें और इसे यहाँ देखने के लिए सहेजें।",
+    "deleteConfirm": "यह विश्लेषण हटाएँ? इसे पूर्ववत नहीं किया जा सकता।",
+    "upgradeForProgress": "Pro में अपग्रेड करें",
+    "scoreOverTime": "समय के साथ स्कोर"
+  },
+  "compare": {
+    "title": "तुलना",
+    "toggle": "तुलना करें",
+    "cancel": "तुलना रद्द करें",
+    "selectTwo": "तुलना के लिए ठीक 2 विश्लेषण चुनें",
+    "sameSportOnly": "एक ही खेल के दो विश्लेषण चुनें",
+    "improved": "सुधार हुआ",
+    "regressed": "गिरावट हुई",
+    "unchanged": "अपरिवर्तित",
+    "scoreDelta": "स्कोर परिवर्तन",
+    "categories": "श्रेणी विवरण",
+    "stats": "आँकड़ों की तुलना"
+  },
+  "stats": {
+    "target": "लक्ष्य: {{range}}"
+  }
+}

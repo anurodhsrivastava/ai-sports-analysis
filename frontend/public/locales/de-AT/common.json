@@ -1,0 +1,184 @@
+{
+  "app": {
+    "title": "KI-Sporttrainer",
+    "signIn": "Anmelden",
+    "signOut": "Abmelden"
+  },
+  "upload": {
+    "heading": "KI-Sporttrainer",
+    "subheading": "Lad ein Video hoch für eine KI-gestützte Technikanalyse",
+    "dropText": "Video hier ablegen oder tippen zum Durchsuchen",
+    "fileTypes": "MP4, AVI, MOV, MKV oder WebM bis zu 500 MB",
+    "uploading": "Wird hochgeladen... {{percent}} %",
+    "invalidFile": "Bitte lad eine Videodatei hoch (MP4, AVI, MOV, MKV oder WebM)."
+  },
+  "processing": {
+    "analyzing": "Deine Technik wird analysiert...",
+    "subtitle": "Pose-Erkennung und biomechanische Analyse werden durchgeführt",
+    "timeRemaining": "Geschätzte Restzeit",
+    "almostDone": "Fast fertig...",
+    "minutes": "~{{count}} Min.",
+    "seconds": "~{{count}} s",
+    "steps": {
+      "extracting": "Frames werden extrahiert",
+      "detecting": "Pose-Schlüsselpunkte werden erkannt",
+      "computing": "Gelenkwinkel werden berechnet",
+      "generating": "Trainingstipps werden erstellt"
+    },
+    "didYouKnow": "Hast du gewusst?"
+  },
+  "results": {
+    "title": "Analyseergebnisse",
+    "areasToImprove": "{{count}} Bereich(e) mit Verbesserungspotenzial",
+    "lookingGood": "Schaut gut aus!",
+    "saveResults": "Ergebnisse speichern",
+    "analyzeAnother": "Weiteres analysieren",
+    "framesAnalyzed": "Analysierte Frames",
+    "avgFrontKnee": "Ø Vorderes Knie",
+    "avgShoulderAlign": "Ø Schulterausrichtung",
+    "noIssues": "Keine größeren Technikprobleme erkannt.",
+    "wrongVideo": "Falsches Video erkannt",
+    "wrongVideoDesc": "Die Analyse wurde übersprungen, weil das Video nicht zur ausgewählten Sportart passt.",
+    "uploadCorrect": "Richtiges Video hochladen"
+  },
+  "improve": {
+    "title": "So verbesserst du dich",
+    "howToFix": "So behebst du es",
+    "drill": "Übung:",
+    "yourAvg": "Dein Ø:",
+    "idealRange": "Idealbereich:",
+    "seeInVideo": "Im Video anschauen",
+    "occurrences": "{{count}} Vorkommnisse",
+    "showDetails": "{{count}} detaillierte Vorkommnisse anzeigen",
+    "hideDetails": "{{count}} detaillierte Vorkommnisse ausblenden",
+    "frame": "Frame {{start}}–{{end}}",
+    "overallScore": "Gesamtbewertung",
+    "progressImproved": "Verbessert seit der letzten Einheit",
+    "progressDeclined": "Verschlechtert seit der letzten Einheit",
+    "drills": "Empfohlene Übungen",
+    "drillDuration": "Dauer: {{duration}}",
+    "drillDifficulty": "Schwierigkeit: {{difficulty}}",
+    "focusFirst": "Darauf zuerst konzentrieren",
+    "grade": "Bewertung",
+    "score": "Punktzahl",
+    "outOf": "von {{max}}",
+    "beginner": "Anfänger",
+    "intermediate": "Fortgeschritten",
+    "advanced": "Experte",
+    "recommendedDrill": "Empfohlen"
+  },
+  "severity": {
+    "ok": "OK",
+    "warning": "Warnung",
+    "critical": "Kritisch"
+  },
+  "login": {
+    "saveTitle": "Ergebnisse speichern",
+    "saveSubtitle": "Meld dich an, um deine Analyse zu speichern und deinen Fortschritt zu verfolgen.",
+    "continueGoogle": "Weiter mit Google",
+    "continueFacebook": "Weiter mit Facebook",
+    "continueEmail": "Weiter mit E-Mail",
+    "maybeLater": "Vielleicht später",
+    "registerTitle": "Konto erstellen",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "displayName": "Anzeigename",
+    "register": "Registrieren",
+    "login": "Anmelden",
+    "haveAccount": "Hast eh schon ein Konto?",
+    "noAccount": "Hast noch kein Konto?"
+  },
+  "wishlist": {
+    "title": "Sportart noch nicht verfügbar",
+    "subtitle": "Wir haben {{sport}} in deinem Video erkannt. Möchtest du benachrichtigt werden, wenn es verfügbar ist?",
+    "emailPlaceholder": "Deine E-Mail (optional)",
+    "notifyMe": "Benachrichtige mich",
+    "thanks": "Danke! Wir geben dir Bescheid."
+  },
+  "pricing": {
+    "title": "Auf Pro upgraden",
+    "subtitle": "Hol mehr aus deiner Trainingsanalyse heraus",
+    "free": "Gratis",
+    "pro": "Pro",
+    "freePriceLabel": "Für immer gratis",
+    "proPriceLabel": "9,99 $/Monat",
+    "freeFeature1": "1 gespeichertes Video pro Sportart",
+    "freeFeature2": "Basisanalyse",
+    "freeFeature3": "Trainingstipps",
+    "proFeature1": "50 gespeicherte Videos pro Sportart",
+    "proFeature2": "Fortschrittsverfolgung",
+    "proFeature3": "Bevorzugter Support",
+    "proFeature4": "Fortgeschrittene Übungen",
+    "currentPlan": "Aktueller Plan",
+    "upgrade": "Auf Pro upgraden",
+    "discountCode": "Rabattcode",
+    "apply": "Einlösen"
+  },
+  "admin": {
+    "title": "Admin-Dashboard",
+    "dashboard": "Dashboard",
+    "users": "Benutzer",
+    "discountCodes": "Rabattcodes",
+    "analyses": "Analysen",
+    "totalUsers": "Benutzer gesamt",
+    "proUsers": "Pro-Benutzer",
+    "totalAnalyses": "Analysen gesamt",
+    "activeSubscriptions": "Aktive Abonnements",
+    "search": "Suchen...",
+    "role": "Rolle",
+    "tier": "Stufe",
+    "actions": "Aktionen",
+    "createCode": "Rabattcode erstellen",
+    "code": "Code",
+    "percentOff": "% Rabatt",
+    "amountOff": "Rabatt ($)",
+    "maxUses": "Max. Nutzungen",
+    "validUntil": "Gültig bis",
+    "timesUsed": "Mal verwendet",
+    "active": "Aktiv",
+    "deactivate": "Deaktivieren",
+    "create": "Erstellen",
+    "backToApp": "Zurück zur App"
+  },
+  "sports": {
+    "snowboarding": "Snowboarden",
+    "skiing": "Schifahren",
+    "skateboarding": "Skateboarden",
+    "surfing": "Surfen"
+  },
+  "errors": {
+    "somethingWrong": "Da ist was schiefgegangen",
+    "tryAgain": "Nochmal versuchen",
+    "quotaExceeded": "Speicherlimit erreicht. Upgrade auf Pro für mehr Speicherplatz.",
+    "paymentFailed": "Die Zahlung konnte nicht verarbeitet werden."
+  },
+  "nav": {
+    "myVideos": "Meine Videos",
+    "pricing": "Preise",
+    "admin": "Admin",
+    "language": "Sprache"
+  },
+  "myVideos": {
+    "title": "Meine Videos",
+    "noVideos": "Noch keine gespeicherten Videos. Analysier ein Video und speicher es, um es hier zu sehen.",
+    "deleteConfirm": "Diese Analyse löschen? Das kann nicht rückgängig gemacht werden.",
+    "upgradeForProgress": "Auf Pro upgraden",
+    "scoreOverTime": "Punktzahl im Zeitverlauf"
+  },
+  "compare": {
+    "title": "Vergleich",
+    "toggle": "Vergleichen",
+    "cancel": "Vergleich abbrechen",
+    "selectTwo": "Wähl genau 2 Analysen zum Vergleichen aus",
+    "sameSportOnly": "Wähl zwei Analysen derselben Sportart",
+    "improved": "Verbessert",
+    "regressed": "Verschlechtert",
+    "unchanged": "Unverändert",
+    "scoreDelta": "Punktänderung",
+    "categories": "Kategorienübersicht",
+    "stats": "Statistikvergleich"
+  },
+  "stats": {
+    "target": "Ziel: {{range}}"
+  }
+}

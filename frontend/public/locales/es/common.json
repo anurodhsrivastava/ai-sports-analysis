@@ -1,0 +1,184 @@
+{
+  "app": {
+    "title": "Entrenador Deportivo IA",
+    "signIn": "Iniciar sesion",
+    "signOut": "Cerrar sesion"
+  },
+  "upload": {
+    "heading": "Entrenador Deportivo IA",
+    "subheading": "Sube un video para un analisis de tecnica con IA",
+    "dropText": "Arrastra tu video aqui o toca para buscar",
+    "fileTypes": "MP4, AVI, MOV, MKV o WebM hasta 500MB",
+    "uploading": "Subiendo... {{percent}}%",
+    "invalidFile": "Por favor sube un archivo de video (MP4, AVI, MOV, MKV o WebM)."
+  },
+  "processing": {
+    "analyzing": "Analizando tu tecnica...",
+    "subtitle": "Ejecutando estimacion de postura y analisis biomecanico",
+    "timeRemaining": "Tiempo estimado restante",
+    "almostDone": "Casi listo...",
+    "minutes": "~{{count}} min",
+    "seconds": "~{{count}}s",
+    "steps": {
+      "extracting": "Extrayendo fotogramas",
+      "detecting": "Detectando puntos clave de postura",
+      "computing": "Calculando angulos articulares",
+      "generating": "Generando consejos de entrenamiento"
+    },
+    "didYouKnow": "Sabias que?"
+  },
+  "results": {
+    "title": "Resultados del Analisis",
+    "areasToImprove": "{{count}} area(s) a mejorar",
+    "lookingGood": "Se ve bien!",
+    "saveResults": "Guardar Resultados",
+    "analyzeAnother": "Analizar Otro",
+    "framesAnalyzed": "Fotogramas Analizados",
+    "avgFrontKnee": "Rodilla Frontal Prom.",
+    "avgShoulderAlign": "Alineacion de Hombros Prom.",
+    "noIssues": "No se detectaron problemas importantes de tecnica.",
+    "wrongVideo": "Video Incorrecto Detectado",
+    "wrongVideoDesc": "El analisis se omitio porque el video no coincide con el deporte seleccionado.",
+    "uploadCorrect": "Subir Video Correcto"
+  },
+  "improve": {
+    "title": "Como Mejorar",
+    "howToFix": "Como Corregirlo",
+    "drill": "Ejercicio:",
+    "yourAvg": "Tu promedio:",
+    "idealRange": "Rango ideal:",
+    "seeInVideo": "Verlo en tu video",
+    "occurrences": "{{count}} ocurrencias",
+    "showDetails": "Mostrar {{count}} ocurrencias detalladas",
+    "hideDetails": "Ocultar {{count}} ocurrencias detalladas",
+    "frame": "Fotograma {{start}}--{{end}}",
+    "overallScore": "Puntuacion General",
+    "progressImproved": "Mejoro desde la ultima sesion",
+    "progressDeclined": "Empeoro desde la ultima sesion",
+    "drills": "Ejercicios Recomendados",
+    "drillDuration": "Duracion: {{duration}}",
+    "drillDifficulty": "Dificultad: {{difficulty}}",
+    "focusFirst": "Concéntrate en esto primero",
+    "grade": "Calificacion",
+    "score": "Puntuacion",
+    "outOf": "de {{max}}",
+    "beginner": "Principiante",
+    "intermediate": "Intermedio",
+    "advanced": "Avanzado",
+    "recommendedDrill": "Recomendado"
+  },
+  "severity": {
+    "ok": "OK",
+    "warning": "Advertencia",
+    "critical": "Critico"
+  },
+  "login": {
+    "saveTitle": "Guarda Tus Resultados",
+    "saveSubtitle": "Inicia sesion para guardar tu analisis y seguir tu progreso.",
+    "continueGoogle": "Continuar con Google",
+    "continueFacebook": "Continuar con Facebook",
+    "continueEmail": "Continuar con Email",
+    "maybeLater": "Quizas luego",
+    "registerTitle": "Crear Cuenta",
+    "email": "Correo electronico",
+    "password": "Contrasena",
+    "displayName": "Nombre visible",
+    "register": "Registrarse",
+    "login": "Iniciar sesion",
+    "haveAccount": "Ya tienes una cuenta?",
+    "noAccount": "No tienes una cuenta?"
+  },
+  "wishlist": {
+    "title": "Deporte No Disponible Aun",
+    "subtitle": "Detectamos {{sport}} en tu video. Quieres que te avisemos cuando este disponible?",
+    "emailPlaceholder": "Tu correo electronico (opcional)",
+    "notifyMe": "Avisame",
+    "thanks": "Gracias! Te avisaremos."
+  },
+  "pricing": {
+    "title": "Actualizar a Pro",
+    "subtitle": "Obtiene mas de tu analisis de entrenamiento",
+    "free": "Gratis",
+    "pro": "Pro",
+    "freePriceLabel": "Gratis para siempre",
+    "proPriceLabel": "$9.99/mes",
+    "freeFeature1": "1 video guardado por deporte",
+    "freeFeature2": "Analisis basico",
+    "freeFeature3": "Consejos de entrenamiento",
+    "proFeature1": "50 videos guardados por deporte",
+    "proFeature2": "Seguimiento de progreso",
+    "proFeature3": "Soporte prioritario",
+    "proFeature4": "Ejercicios avanzados",
+    "currentPlan": "Plan Actual",
+    "upgrade": "Actualizar a Pro",
+    "discountCode": "Codigo de descuento",
+    "apply": "Aplicar"
+  },
+  "admin": {
+    "title": "Panel de Administracion",
+    "dashboard": "Panel",
+    "users": "Usuarios",
+    "discountCodes": "Codigos de Descuento",
+    "analyses": "Analisis",
+    "totalUsers": "Usuarios Totales",
+    "proUsers": "Usuarios Pro",
+    "totalAnalyses": "Analisis Totales",
+    "activeSubscriptions": "Suscripciones Activas",
+    "search": "Buscar...",
+    "role": "Rol",
+    "tier": "Nivel",
+    "actions": "Acciones",
+    "createCode": "Crear Codigo de Descuento",
+    "code": "Codigo",
+    "percentOff": "% Descuento",
+    "amountOff": "Descuento ($)",
+    "maxUses": "Usos Maximos",
+    "validUntil": "Valido Hasta",
+    "timesUsed": "Veces Usado",
+    "active": "Activo",
+    "deactivate": "Desactivar",
+    "create": "Crear",
+    "backToApp": "Volver a la App"
+  },
+  "sports": {
+    "snowboarding": "Snowboard",
+    "skiing": "Esqui",
+    "skateboarding": "Skateboarding",
+    "surfing": "Surf"
+  },
+  "errors": {
+    "somethingWrong": "Algo salio mal",
+    "tryAgain": "Intentar de Nuevo",
+    "quotaExceeded": "Limite de almacenamiento alcanzado. Actualiza a Pro para mas espacio.",
+    "paymentFailed": "No se pudo procesar el pago."
+  },
+  "nav": {
+    "myVideos": "Mis Videos",
+    "pricing": "Precios",
+    "admin": "Administracion",
+    "language": "Idioma"
+  },
+  "myVideos": {
+    "title": "Mis Videos",
+    "noVideos": "Aun no hay videos guardados. Analiza un video y guardalo para verlo aqui.",
+    "deleteConfirm": "Eliminar este analisis? Esta accion no se puede deshacer.",
+    "upgradeForProgress": "Actualizar a Pro",
+    "scoreOverTime": "Puntuacion a lo largo del tiempo"
+  },
+  "compare": {
+    "title": "Comparacion",
+    "toggle": "Comparar",
+    "cancel": "Cancelar comparacion",
+    "selectTwo": "Selecciona exactamente 2 analisis para comparar",
+    "sameSportOnly": "Selecciona dos analisis del mismo deporte",
+    "improved": "Mejorado",
+    "regressed": "Empeorado",
+    "unchanged": "Sin cambios",
+    "scoreDelta": "Cambio de puntuacion",
+    "categories": "Desglose por categorias",
+    "stats": "Comparacion de estadisticas"
+  },
+  "stats": {
+    "target": "objetivo: {{range}}"
+  }
+}

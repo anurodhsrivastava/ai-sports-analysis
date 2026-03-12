@@ -1,0 +1,184 @@
+{
+  "app": {
+    "title": "ИИ Спортивный Тренер",
+    "signIn": "Войти",
+    "signOut": "Выйти"
+  },
+  "upload": {
+    "heading": "ИИ Спортивный Тренер",
+    "subheading": "Загрузите видео для анализа техники с помощью ИИ",
+    "dropText": "Перетащите видео сюда или нажмите для выбора",
+    "fileTypes": "MP4, AVI, MOV, MKV или WebM до 500 МБ",
+    "uploading": "Загрузка... {{percent}}%",
+    "invalidFile": "Пожалуйста, загрузите видеофайл (MP4, AVI, MOV, MKV или WebM)."
+  },
+  "processing": {
+    "analyzing": "Анализируем вашу технику...",
+    "subtitle": "Выполняется оценка позы и биомеханический анализ",
+    "timeRemaining": "Примерное оставшееся время",
+    "almostDone": "Почти готово...",
+    "minutes": "~{{count}} мин",
+    "seconds": "~{{count}}с",
+    "steps": {
+      "extracting": "Извлечение кадров",
+      "detecting": "Определение ключевых точек позы",
+      "computing": "Вычисление углов суставов",
+      "generating": "Формирование советов тренера"
+    },
+    "didYouKnow": "Знаете ли вы?"
+  },
+  "results": {
+    "title": "Результаты анализа",
+    "areasToImprove": "{{count}} область(ей) для улучшения",
+    "lookingGood": "Отлично выглядит!",
+    "saveResults": "Сохранить результаты",
+    "analyzeAnother": "Анализировать другое",
+    "framesAnalyzed": "Проанализировано кадров",
+    "avgFrontKnee": "Ср. переднее колено",
+    "avgShoulderAlign": "Ср. выравнивание плеч",
+    "noIssues": "Серьёзных проблем с техникой не обнаружено.",
+    "wrongVideo": "Обнаружено неподходящее видео",
+    "wrongVideoDesc": "Анализ был пропущен, так как видео не соответствует выбранному виду спорта.",
+    "uploadCorrect": "Загрузить подходящее видео"
+  },
+  "improve": {
+    "title": "Как улучшить",
+    "howToFix": "Как исправить",
+    "drill": "Упражнение:",
+    "yourAvg": "Ваше среднее:",
+    "idealRange": "Идеальный диапазон:",
+    "seeInVideo": "Посмотреть в вашем видео",
+    "occurrences": "{{count}} случаев",
+    "showDetails": "Показать {{count}} подробных случаев",
+    "hideDetails": "Скрыть {{count}} подробных случаев",
+    "frame": "Кадр {{start}}–{{end}}",
+    "overallScore": "Общая оценка",
+    "progressImproved": "Улучшение с прошлого занятия",
+    "progressDeclined": "Ухудшение с прошлого занятия",
+    "drills": "Рекомендуемые упражнения",
+    "drillDuration": "Продолжительность: {{duration}}",
+    "drillDifficulty": "Сложность: {{difficulty}}",
+    "focusFirst": "Сначала сосредоточьтесь на этом",
+    "grade": "Оценка",
+    "score": "Баллы",
+    "outOf": "из {{max}}",
+    "beginner": "Начинающий",
+    "intermediate": "Средний",
+    "advanced": "Продвинутый",
+    "recommendedDrill": "Рекомендуемое"
+  },
+  "severity": {
+    "ok": "Норма",
+    "warning": "Предупреждение",
+    "critical": "Критично"
+  },
+  "login": {
+    "saveTitle": "Сохраните ваши результаты",
+    "saveSubtitle": "Войдите, чтобы сохранить анализ и отслеживать прогресс.",
+    "continueGoogle": "Продолжить с Google",
+    "continueFacebook": "Продолжить с Facebook",
+    "continueEmail": "Продолжить с Email",
+    "maybeLater": "Может быть позже",
+    "registerTitle": "Создать аккаунт",
+    "email": "Электронная почта",
+    "password": "Пароль",
+    "displayName": "Отображаемое имя",
+    "register": "Зарегистрироваться",
+    "login": "Войти",
+    "haveAccount": "Уже есть аккаунт?",
+    "noAccount": "Нет аккаунта?"
+  },
+  "wishlist": {
+    "title": "Спорт пока недоступен",
+    "subtitle": "Мы обнаружили {{sport}} в вашем видео. Хотите получить уведомление, когда он станет доступен?",
+    "emailPlaceholder": "Ваш email (необязательно)",
+    "notifyMe": "Уведомить меня",
+    "thanks": "Спасибо! Мы сообщим вам."
+  },
+  "pricing": {
+    "title": "Перейти на Pro",
+    "subtitle": "Получите больше от анализа тренера",
+    "free": "Бесплатно",
+    "pro": "Pro",
+    "freePriceLabel": "Бесплатно навсегда",
+    "proPriceLabel": "$9.99/месяц",
+    "freeFeature1": "1 сохранённое видео на вид спорта",
+    "freeFeature2": "Базовый анализ",
+    "freeFeature3": "Советы тренера",
+    "proFeature1": "50 сохранённых видео на вид спорта",
+    "proFeature2": "Отслеживание прогресса",
+    "proFeature3": "Приоритетная поддержка",
+    "proFeature4": "Продвинутые упражнения",
+    "currentPlan": "Текущий план",
+    "upgrade": "Перейти на Pro",
+    "discountCode": "Код скидки",
+    "apply": "Применить"
+  },
+  "admin": {
+    "title": "Панель администратора",
+    "dashboard": "Панель управления",
+    "users": "Пользователи",
+    "discountCodes": "Коды скидок",
+    "analyses": "Анализы",
+    "totalUsers": "Всего пользователей",
+    "proUsers": "Пользователи Pro",
+    "totalAnalyses": "Всего анализов",
+    "activeSubscriptions": "Активные подписки",
+    "search": "Поиск...",
+    "role": "Роль",
+    "tier": "Уровень",
+    "actions": "Действия",
+    "createCode": "Создать код скидки",
+    "code": "Код",
+    "percentOff": "% скидки",
+    "amountOff": "Сумма скидки ($)",
+    "maxUses": "Макс. использований",
+    "validUntil": "Действителен до",
+    "timesUsed": "Использовано раз",
+    "active": "Активен",
+    "deactivate": "Деактивировать",
+    "create": "Создать",
+    "backToApp": "Вернуться в приложение"
+  },
+  "sports": {
+    "snowboarding": "Сноуборд",
+    "skiing": "Горные лыжи",
+    "skateboarding": "Скейтбординг",
+    "surfing": "Сёрфинг"
+  },
+  "errors": {
+    "somethingWrong": "Что-то пошло не так",
+    "tryAgain": "Попробовать снова",
+    "quotaExceeded": "Достигнут лимит хранения. Перейдите на Pro для увеличения.",
+    "paymentFailed": "Не удалось обработать платёж."
+  },
+  "nav": {
+    "myVideos": "Мои видео",
+    "pricing": "Тарифы",
+    "admin": "Админ",
+    "language": "Язык"
+  },
+  "myVideos": {
+    "title": "Мои видео",
+    "noVideos": "Сохранённых видео пока нет. Проанализируйте видео и сохраните его, чтобы увидеть здесь.",
+    "deleteConfirm": "Удалить этот анализ? Это действие нельзя отменить.",
+    "upgradeForProgress": "Перейти на Pro",
+    "scoreOverTime": "Баллы за период"
+  },
+  "compare": {
+    "title": "Сравнение",
+    "toggle": "Сравнить",
+    "cancel": "Отменить сравнение",
+    "selectTwo": "Выберите ровно 2 анализа для сравнения",
+    "sameSportOnly": "Выберите два анализа одного вида спорта",
+    "improved": "Улучшено",
+    "regressed": "Ухудшено",
+    "unchanged": "Без изменений",
+    "scoreDelta": "Изменение баллов",
+    "categories": "Разбивка по категориям",
+    "stats": "Сравнение статистики"
+  },
+  "stats": {
+    "target": "цель: {{range}}"
+  }
+}

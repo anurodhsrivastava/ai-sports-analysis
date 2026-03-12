@@ -1,0 +1,184 @@
+{
+  "app": {
+    "title": "AI Sportovní Trenér",
+    "signIn": "Přihlásit se",
+    "signOut": "Odhlásit se"
+  },
+  "upload": {
+    "heading": "AI Sportovní Trenér",
+    "subheading": "Nahrajte video pro analýzu techniky pomocí AI",
+    "dropText": "Přetáhněte video sem nebo klepněte pro výběr",
+    "fileTypes": "MP4, AVI, MOV, MKV nebo WebM do 500 MB",
+    "uploading": "Nahrávání... {{percent}} %",
+    "invalidFile": "Nahrajte prosím videosoubor (MP4, AVI, MOV, MKV nebo WebM)."
+  },
+  "processing": {
+    "analyzing": "Analyzuji vaši techniku...",
+    "subtitle": "Probíhá odhad pozice a biomechanická analýza",
+    "timeRemaining": "Odhadovaný zbývající čas",
+    "almostDone": "Téměř hotovo...",
+    "minutes": "~{{count}} min",
+    "seconds": "~{{count}} s",
+    "steps": {
+      "extracting": "Extrakce snímků",
+      "detecting": "Detekce klíčových bodů pozice",
+      "computing": "Výpočet úhlů kloubů",
+      "generating": "Generování trenérských tipů"
+    },
+    "didYouKnow": "Věděli jste?"
+  },
+  "results": {
+    "title": "Výsledky analýzy",
+    "areasToImprove": "{{count}} oblast(í) ke zlepšení",
+    "lookingGood": "Vypadá to skvěle!",
+    "saveResults": "Uložit výsledky",
+    "analyzeAnother": "Analyzovat další",
+    "framesAnalyzed": "Analyzované snímky",
+    "avgFrontKnee": "Průměr předního kolene",
+    "avgShoulderAlign": "Průměr zarovnání ramen",
+    "noIssues": "Nebyly zjištěny žádné závažné problémy s technikou.",
+    "wrongVideo": "Zjištěno nesprávné video",
+    "wrongVideoDesc": "Analýza byla přeskočena, protože video neodpovídá vybranému sportu.",
+    "uploadCorrect": "Nahrát správné video"
+  },
+  "improve": {
+    "title": "Jak se zlepšit",
+    "howToFix": "Jak to opravit",
+    "drill": "Cvičení:",
+    "yourAvg": "Váš průměr:",
+    "idealRange": "Ideální rozsah:",
+    "seeInVideo": "Podívejte se ve svém videu",
+    "occurrences": "{{count}} výskytů",
+    "showDetails": "Zobrazit {{count}} podrobných výskytů",
+    "hideDetails": "Skrýt {{count}} podrobných výskytů",
+    "frame": "Snímek {{start}}–{{end}}",
+    "overallScore": "Celkové skóre",
+    "progressImproved": "Zlepšení od posledního sezení",
+    "progressDeclined": "Zhoršení od posledního sezení",
+    "drills": "Doporučená cvičení",
+    "drillDuration": "Délka: {{duration}}",
+    "drillDifficulty": "Obtížnost: {{difficulty}}",
+    "focusFirst": "Zaměřte se nejdříve na toto",
+    "grade": "Známka",
+    "score": "Skóre",
+    "outOf": "z {{max}}",
+    "beginner": "Začátečník",
+    "intermediate": "Středně pokročilý",
+    "advanced": "Pokročilý",
+    "recommendedDrill": "Doporučené"
+  },
+  "severity": {
+    "ok": "OK",
+    "warning": "Varování",
+    "critical": "Kritické"
+  },
+  "login": {
+    "saveTitle": "Uložte si výsledky",
+    "saveSubtitle": "Přihlaste se pro uložení analýzy a sledování pokroku v čase.",
+    "continueGoogle": "Pokračovat přes Google",
+    "continueFacebook": "Pokračovat přes Facebook",
+    "continueEmail": "Pokračovat přes e-mail",
+    "maybeLater": "Možná později",
+    "registerTitle": "Vytvořit účet",
+    "email": "E-mail",
+    "password": "Heslo",
+    "displayName": "Zobrazované jméno",
+    "register": "Zaregistrovat se",
+    "login": "Přihlásit se",
+    "haveAccount": "Již máte účet?",
+    "noAccount": "Nemáte účet?"
+  },
+  "wishlist": {
+    "title": "Sport zatím není dostupný",
+    "subtitle": "Ve vašem videu jsme rozpoznali {{sport}}. Chcete být upozorněni, až bude k dispozici?",
+    "emailPlaceholder": "Váš e-mail (nepovinné)",
+    "notifyMe": "Upozorněte mě",
+    "thanks": "Díky! Dáme vám vědět."
+  },
+  "pricing": {
+    "title": "Přejít na Pro",
+    "subtitle": "Získejte více z vaší trenérské analýzy",
+    "free": "Zdarma",
+    "pro": "Pro",
+    "freePriceLabel": "Navždy zdarma",
+    "proPriceLabel": "9,99 $/měsíc",
+    "freeFeature1": "1 uložené video na sport",
+    "freeFeature2": "Základní analýza",
+    "freeFeature3": "Trenérské tipy",
+    "proFeature1": "50 uložených videí na sport",
+    "proFeature2": "Sledování pokroku",
+    "proFeature3": "Prioritní podpora",
+    "proFeature4": "Pokročilá cvičení",
+    "currentPlan": "Aktuální plán",
+    "upgrade": "Přejít na Pro",
+    "discountCode": "Slevový kód",
+    "apply": "Použít"
+  },
+  "admin": {
+    "title": "Administrátorský panel",
+    "dashboard": "Přehled",
+    "users": "Uživatelé",
+    "discountCodes": "Slevové kódy",
+    "analyses": "Analýzy",
+    "totalUsers": "Celkem uživatelů",
+    "proUsers": "Pro uživatelé",
+    "totalAnalyses": "Celkem analýz",
+    "activeSubscriptions": "Aktivní předplatná",
+    "search": "Hledat...",
+    "role": "Role",
+    "tier": "Úroveň",
+    "actions": "Akce",
+    "createCode": "Vytvořit slevový kód",
+    "code": "Kód",
+    "percentOff": "% sleva",
+    "amountOff": "Sleva ($)",
+    "maxUses": "Max. použití",
+    "validUntil": "Platnost do",
+    "timesUsed": "Počet použití",
+    "active": "Aktivní",
+    "deactivate": "Deaktivovat",
+    "create": "Vytvořit",
+    "backToApp": "Zpět do aplikace"
+  },
+  "sports": {
+    "snowboarding": "Snowboarding",
+    "skiing": "Lyžování",
+    "skateboarding": "Skateboarding",
+    "surfing": "Surfování"
+  },
+  "errors": {
+    "somethingWrong": "Něco se pokazilo",
+    "tryAgain": "Zkusit znovu",
+    "quotaExceeded": "Dosažen limit úložiště. Pro více místa přejděte na Pro.",
+    "paymentFailed": "Platbu nebylo možné zpracovat."
+  },
+  "nav": {
+    "myVideos": "Moje videa",
+    "pricing": "Ceník",
+    "admin": "Administrace",
+    "language": "Jazyk"
+  },
+  "myVideos": {
+    "title": "Moje videa",
+    "noVideos": "Zatím žádná uložená videa. Analyzujte video a uložte ho, aby se zde zobrazilo.",
+    "deleteConfirm": "Smazat tuto analýzu? Tuto akci nelze vrátit zpět.",
+    "upgradeForProgress": "Přejít na Pro",
+    "scoreOverTime": "Skóre v průběhu času"
+  },
+  "compare": {
+    "title": "Porovnání",
+    "toggle": "Porovnat",
+    "cancel": "Zrušit porovnání",
+    "selectTwo": "Vyberte přesně 2 analýzy k porovnání",
+    "sameSportOnly": "Vyberte dvě analýzy stejného sportu",
+    "improved": "Zlepšeno",
+    "regressed": "Zhoršeno",
+    "unchanged": "Beze změny",
+    "scoreDelta": "Změna skóre",
+    "categories": "Rozložení kategorií",
+    "stats": "Porovnání statistik"
+  },
+  "stats": {
+    "target": "cíl: {{range}}"
+  }
+}
