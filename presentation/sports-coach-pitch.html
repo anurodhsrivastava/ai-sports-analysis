@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Sports Coach - Pitch Deck</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --slate-900: #0f172a;
+    --slate-800: #1e293b;
+    --slate-700: #334155;
+    --slate-400: #94a3b8;
+    --slate-300: #cbd5e1;
+    --white: #f8fafc;
+    --accent: #38bdf8;
+    --accent-alt: #818cf8;
+    --green: #4ade80;
+    --amber: #fbbf24;
+    --red: #f87171;
+    --transition-speed: 0.5s;
+  }
+
+  html, body {
+    height: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--slate-900);
+    color: var(--white);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- slide container ---------- */
+  .deck {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh 8vw;
+    opacity: 0;
+    transform: translateX(60px);
+    pointer-events: none;
+    transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
+  }
+
+  .slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+  }
+
+  .slide.exit-left {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+
+  /* ---------- typography ---------- */
+  h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(1.6rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 0.6em; }
+  h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 600; margin-bottom: 0.4em; color: var(--accent); }
+  p, li { font-size: clamp(1rem, 1.8vw, 1.35rem); line-height: 1.65; color: var(--slate-300); }
+  ul { list-style: none; padding: 0; }
+  ul li { padding-left: 1.4em; position: relative; margin-bottom: 0.55em; }
+  ul li::before { content: "\2014"; position: absolute; left: 0; color: var(--accent); }
+
+  .subtitle { color: var(--slate-400); font-size: clamp(1rem, 1.6vw, 1.25rem); margin-top: 0.5em; }
+  .tagline { font-size: clamp(1.2rem, 2.2vw, 1.7rem); color: var(--slate-300); margin-top: 0.3em; font-weight: 400; }
+
+  .accent { color: var(--accent); }
+  .accent-alt { color: var(--accent-alt); }
+  .green { color: var(--green); }
+  .amber { color: var(--amber); }
+
+  /* ---------- layout helpers ---------- */
+  .content { max-width: 960px; width: 100%; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.8rem; }
+
+  @media (max-width: 768px) {
+    .two-col, .three-col { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: linear-gradient(135deg, var(--slate-800), var(--slate-700));
+    border: 1px solid rgba(148,163,184,0.12);
+    border-radius: 12px;
+    padding: 1.4em 1.6em;
+  }
+
+  .card h3 { margin-top: 0; }
+
+  .pipeline {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.2em;
+  }
+
+  .pipeline-step {
+    background: var(--slate-800);
+    border: 1px solid var(--slate-700);
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+    font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .pipeline-arrow { color: var(--accent); font-size: 1.4rem; font-weight: 700; }
+
+  .badge {
+    display: inline-block;
+    padding: 0.25em 0.75em;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 0.2em;
+  }
+
+  .badge-blue { background: rgba(56,189,248,0.15); color: var(--accent); border: 1px solid rgba(56,189,248,0.3); }
+  .badge-purple { background: rgba(129,140,248,0.15); color: var(--accent-alt); border: 1px solid rgba(129,140,248,0.3); }
+  .badge-green { background: rgba(74,222,128,0.15); color: var(--green); border: 1px solid rgba(74,222,128,0.3); }
+
+  /* tier pricing */
+  .tier {
+    text-align: center;
+    padding: 1.8em 1.4em;
+  }
+  .tier .price { font-size: 2rem; font-weight: 800; color: var(--white); margin: 0.3em 0; }
+  .tier .price-sub { font-size: 0.9rem; color: var(--slate-400); }
+
+  /* ---------- slide counter ---------- */
+  .counter {
+    position: fixed;
+    bottom: 1.4rem;
+    right: 2rem;
+    font-size: 0.9rem;
+    color: var(--slate-400);
+    font-variant-numeric: tabular-nums;
+    z-index: 100;
+    user-select: none;
+  }
+
+  /* progress bar */
+  .progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+    transition: width 0.4s ease;
+    z-index: 100;
+  }
+
+  /* nav hint */
+  .nav-hint {
+    position: fixed;
+    bottom: 1.4rem;
+    left: 2rem;
+    font-size: 0.8rem;
+    color: var(--slate-700);
+    z-index: 100;
+    user-select: none;
+  }
+
+  /* ---------- title slide gradient ---------- */
+  .title-gradient {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-alt) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+    border-radius: 2px;
+    margin: 1em 0;
+  }
+
+  .center { text-align: center; }
+  .center .divider { margin-left: auto; margin-right: auto; }
+
+  /* sport grid */
+  .sport-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  @media (max-width: 768px) { .sport-grid { grid-template-columns: repeat(2, 1fr); } }
+
+  .sport-card {
+    background: var(--slate-800);
+    border: 1px solid var(--slate-700);
+    border-radius: 10px;
+    padding: 1em 1.2em;
+    transition: border-color 0.3s;
+  }
+  .sport-card:hover { border-color: var(--accent); }
+  .sport-card h3 { font-size: 1.05rem; margin-bottom: 0.3em; }
+  .sport-card p { font-size: 0.9rem; margin: 0; }
+
+  /* language tags */
+  .lang-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6em;
+    justify-content: center;
+    margin-top: 1em;
+  }
+
+  .lang-tag {
+    background: var(--slate-800);
+    border: 1px solid var(--slate-700);
+    border-radius: 8px;
+    padding: 0.5em 1.1em;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  /* roadmap timeline */
+  .roadmap-list { padding-left: 0; }
+  .roadmap-list li { padding-left: 1.6em; margin-bottom: 0.7em; }
+  .roadmap-list li::before { content: "\25B8"; color: var(--accent); }
+
+  /* CTA */
+  .cta-btn {
+    display: inline-block;
+    margin-top: 1.2em;
+    padding: 0.8em 2.4em;
+    background: linear-gradient(135deg, var(--accent), var(--accent-alt));
+    color: var(--slate-900);
+    font-weight: 700;
+    font-size: 1.15rem;
+    border-radius: 10px;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  /* tech stack grid */
+  .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  @media (max-width: 640px) { .tech-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="counter" id="counter"></div>
+<div class="nav-hint">Arrow keys / Space to navigate</div>
+
+<div class="deck" id="deck">
+
+  <!-- ================= SLIDE 1: TITLE ================= -->
+  <div class="slide active" data-slide="1">
+    <div class="content center">
+      <h1 class="title-gradient">AI Sports Coach</h1>
+      <p class="tagline">AI-Powered Technique Analysis for Every Athlete</p>
+      <div class="divider"></div>
+      <p class="subtitle">Real-time biomechanical feedback across 6 sports</p>
+    </div>
+  </div>
+
+  <!-- ================= SLIDE 2: THE PROBLEM ================= -->
+  <div class="slide" data-slide="2">
+    <div class="content">
+      <h2>The Problem</h2>
+      <div class="divider"></div>
+      <ul>
+        <li>Recreational athletes lack affordable, data-driven technique feedback</li>
+        <li>Professional coaching is expensive &mdash; <span class="accent">$50&ndash;150 / hour</span></li>
+        <li>Self-recorded videos are nearly impossible to analyze without expertise</li>
+        <li>No way to get <strong>objective, repeatable</strong> measurements of form</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= SLIDE 3: THE SOLUTION ================= -->
+  <div class="slide" data-slide="3">
+    <div class="content">
+      <h2>The Solution</h2>
+      <div class="divider"></div>
+      <ul>
+        <li><strong>Upload a video</strong> and get instant AI-powered coaching</li>
+        <li>Custom pose estimation extracts body keypoints <strong>frame-by-frame</strong></li>
+        <li>Deterministic biomechanical rules evaluate form against sport-science thresholds</li>
+        <li><span class="accent">A&ndash;F scoring</span> with specific, actionable improvement tips</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= SLIDE 4: SUPPORTED SPORTS ================= -->
+  <div class="slide" data-slide="4">
+    <div class="content">
+      <h2 class="center">6 Sports, Sport-Specific Analysis</h2>
+      <div class="divider" style="margin-left:auto;margin-right:auto;"></div>
+      <div class="sport-grid">
+        <div class="sport-card">
+          <h3>Snowboarding</h3>
+          <p>Knee flexion, shoulder alignment, stance width</p>
+        </div>
+        <div class="sport-card">
+          <h3>Skiing</h3>
+          <p>Knee angle, hip alignment, ski parallelism</p>
+        </div>
+        <div class="sport-card">
+          <h3>Running</h3>
+          <p>Forward lean, arm swing, cadence</p>
+        </div>
+        <div class="sport-card">
+          <h3>Home Workouts</h3>
+          <p>Squat, push-up, and plank form</p>
+        </div>
+        <div class="sport-card">
+          <h3>Yoga</h3>
+          <p>Spine alignment, balance, symmetry</p>
+        </div>
+        <div class="sport-card">
+          <h3>Golf</h3>
+          <p>Spine angle, arm extension, head stability</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SLIDE 5: HOW IT WORKS ================= -->
+  <div class="slide" data-slide="5">
+    <div class="content center">
+      <h2>How It Works</h2>
+      <div class="divider"></div>
+      <p style="margin-bottom:1.4em;">Three steps from video to coaching</p>
+      <div class="pipeline">
+        <div class="pipeline-step">Select Sport</div>
+        <span class="pipeline-arrow">&#8594;</span>
+        <div class="pipeline-step">Upload Video</div>
+        <span class="pipeline-arrow">&#8594;</span>
+        <div class="pipeline-step">Get Coaching</div>
+      </div>
+      <div style="margin-top:2.2em;"></div>
+      <p style="color:var(--slate-400);margin-bottom:0.8em;font-size:0.95rem;">Under the hood</p>
+      <div class="pipeline">
+        <div class="pipeline-step">Video</div>
+        <span class="pipeline-arrow">&#8594;</span>
+        <div class="pipeline-step">Pose Estimation</div>
+        <span class="pipeline-arrow">&#8594;</span>
+        <div class="pipeline-step">Biomechanical Analysis</div>
+        <span class="pipeline-arrow">&#8594;</span>
+        <div class="pipeline-step">Coaching Tips</div>
+      </div>
+      <p style="margin-top:1.6em;"><span class="accent">~30 seconds</span> for a typical video</p>
+    </div>
+  </div>
+
+  <!-- ================= SLIDE 6: COACHING EXPERIENCE ================= -->
+  <div class="slide" data-slide="6">
+    <div class="content">
+      <h2>The Coaching Experience</h2>
+      <div class="divider"></div>
+      <div class="two-col">
+        <div>
+          <ul>
+            <li>Annotated video with <strong>skeleton overlay</strong></li>
+            <li>Category-by-category breakdown with severity indicators</li>
+            <li>Overall <span class="accent">A&ndash;F score</span> with color coding</li>
+          </ul>
+        </div>
+        <div>
+          <ul>
+            <li>Difficulty-leveled drills: beginner, intermediate, advanced</li>
+            <li>Frame-accurate tip links &mdash; click to jump to the exact moment</li>
+            <li>Illustrated technique guides per sport</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SLIDE 7: SMART DETECTION ================= -->
+  <div class="slide" data-slide="7">
+    <div class="content center">
+      <h2>Smart Scene Detection</h2>
+      <div class="divider"></div>
+      <div class="three-col">
+        <div class="card">
+          <h3>Detect</h3>
+          <p>CLIP-based scene analysis identifies the sport in the uploaded video</p>
+        </div>
+        <div class="card">
+          <h3>Warn</h3>
+          <p>Alerts the user if the video does not match the selected sport</p>
+        </div>
+        <div class="card">
+          <h3>Suggest</h3>
+          <p>Recommends the correct sport to prevent wasted analysis time</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SLIDE 8: GLOBAL REACH ================= -->
+  <div class="slide" data-slide="8">
+    <div class="content center">
+      <h2>Global Reach</h2>
+      <div class="divider"></div>
+      <p style="margin-bottom:0.6em;">10 languages with browser auto-detection</p>
+      <p style="margin-bottom:1.2em;color:var(--slate-400);">Fully translated coaching tips, UI, and scoring feedback</p>
+      <div class="lang-grid">
+        <span class="lang-tag">English</span>
+        <span class="lang-tag">French</span>
+        <span class="lang-tag">Spanish</span>
+        <span class="lang-tag">Italian</span>
+        <span class="lang-tag">Japanese</span>
+        <span class="lang-tag">German</span>
+        <span class="lang-tag">Austrian German</span>
+        <span class="lang-tag">Russian</span>
+        <span class="lang-tag">Hindi</span>
+        <span class="lang-tag">Czech</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SLIDE 9: TECHNOLOGY STACK ================= -->
+  <div class="slide" data-slide="9">
+    <div class="content">
+      <h2 class="center">Technology Stack</h2>
+      <div class="divider" style="margin-left:auto;margin-right:auto;"></div>
+      <div class="tech-grid">
+        <div class="card">
+          <h3>Machine Learning</h3>
+          <p>Custom ResNet-50 (PyTorch)<br>CLIP ViT-B-32 for scene detection</p>
+        </div>
+        <div class="card">
+          <h3>Backend</h3>
+          <p>FastAPI, SQLAlchemy<br>WebSocket real-time updates</p>
+        </div>
+        <div class="card">
+          <h3>Frontend</h3>
+          <p>React 19, TypeScript<br>Tailwind CSS</p>
+        </div>
+        <div class="card">
+          <h3>Infrastructure</h3>
+          <p>GPU inference (FP16)<br>Async processing pipeline</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SLIDE 10: BUSINESS MODEL ================= -->
+  <div class="slide" data-slide="10">
+    <div class="content center">
+      <h2>Business Model</h2>
+      <div class="divider"></div>
+      <div class="two-col" style="margin-top:1em;">
+        <div class="card tier">
+          <h3 style="color:var(--slate-300);">Free Tier</h3>
+          <div class="price">$0</div>
+          <div class="price-sub">forever</div>
+          <ul style="text-align:left;margin-top:1em;">
+            <li>Unlimited analysis</li>
+            <li>1 saved video per sport</li>
+          </ul>
+        </div>
+        <div class="card tier" style="border-color:var(--accent);">
+          <h3>Pro Tier</h3>
+          <div class="price">$9.99<span class="price-sub"> / mo</span></div>
+          <ul style="text-align:left;margin-top:1em;">
+            <li>50 saved videos per sport</li>
+            <li>Priority support</li>
+            <li>Progress tracking</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:1.4em;font-size:0.95rem;color:var(--slate-400);">Stripe integration &middot; Discount codes &middot; Admin dashboard for user management</p>
+    </div>
+  </div>
+
+  <!-- ================= SLIDE 11: PLATFORM FEATURES ================= -->
+  <div class="slide" data-slide="11">
+    <div class="content">
+      <h2>Platform Features</h2>
+      <div class="divider"></div>
+      <div class="two-col">
+        <ul>
+          <li>JWT authentication (email + Google / Facebook OAuth)</li>
+          <li>Mobile-responsive dark theme</li>
+          <li>WebSocket real-time notifications</li>
+        </ul>
+        <ul>
+          <li>Admin dashboard with analytics</li>
+          <li>Tiered storage with quota enforcement</li>
+          <li>Secure, per-user video isolation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SLIDE 12: ML PIPELINE ================= -->
+  <div class="slide" data-slide="12">
+    <div class="content center">
+      <h2>ML Pipeline</h2>
+      <div class="divider"></div>
+      <div class="pipeline" style="margin-bottom:1.6em;">
+        <div class="pipeline-step">Data Collection</div>
+        <span class="pipeline-arrow">&#8594;</span>
+        <div class="pipeline-step">Labeling</div>
+        <span class="pipeline-arrow">&#8594;</span>
+        <div class="pipeline-step">Training</div>
+        <span class="pipeline-arrow">&#8594;</span>
+        <div class="pipeline-step">Inference</div>
+      </div>
+      <div class="tech-grid" style="text-align:left;">
+        <div class="card">
+          <h3>Data Collection</h3>
+          <p>YouTube videos with motion-based frame extraction</p>
+        </div>
+        <div class="card">
+          <h3>Labeling</h3>
+          <p>MediaPipe auto-label with manual refinement</p>
+        </div>
+        <div class="card">
+          <h3>Training</h3>
+          <p>ResNet-50 with masked MSE loss function</p>
+        </div>
+        <div class="card">
+          <h3>Inference</h3>
+          <p>Batch processing, FP16 on GPU, proxy downscaling</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SLIDE 13: COMPETITIVE ADVANTAGES ================= -->
+  <div class="slide" data-slide="13">
+    <div class="content">
+      <h2>Competitive Advantages</h2>
+      <div class="divider"></div>
+      <ul>
+        <li><strong>Multi-sport support</strong> &mdash; not locked to a single sport</li>
+        <li><strong>Deterministic analysis</strong> &mdash; consistent, repeatable results every time</li>
+        <li><strong>Sport-specific coaching</strong> with illustrated technique guides</li>
+        <li><strong>Affordable alternative</strong> to professional coaching sessions</li>
+        <li><strong>Scalable architecture</strong> ready for production deployment</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ================= SLIDE 14: ROADMAP ================= -->
+  <div class="slide" data-slide="14">
+    <div class="content">
+      <h2>Roadmap</h2>
+      <div class="divider"></div>
+      <div class="two-col">
+        <div>
+          <h3 style="color:var(--green);">Near Term</h3>
+          <ul class="roadmap-list">
+            <li>Sport-specific trained models for per-sport accuracy</li>
+            <li>Comparison mode to track improvement over time</li>
+            <li>Multi-person detection in group sessions</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="color:var(--amber);">Future</h3>
+          <ul class="roadmap-list">
+            <li>Streaming partial results during analysis</li>
+            <li>Team and coach collaboration features</li>
+            <li>Mobile PWA with offline support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SLIDE 15: CALL TO ACTION ================= -->
+  <div class="slide" data-slide="15">
+    <div class="content center">
+      <h1 class="title-gradient">Try It Today</h1>
+      <div class="divider"></div>
+      <p class="tagline" style="margin-bottom:1.2em;">AI-powered coaching, accessible to every athlete</p>
+      <div style="margin:1.4em 0;">
+        <span class="badge badge-blue">Python</span>
+        <span class="badge badge-purple">React</span>
+        <span class="badge badge-green">PyTorch</span>
+      </div>
+      <p style="margin-bottom:1.6em;color:var(--slate-400);">Open source &middot; github.com/your-org/ai-sports-coach</p>
+      <a href="#" class="cta-btn">Launch Demo</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  let current = 0;
+
+  function show(index, direction) {
+    if (index < 0 || index >= total) return;
+    const prev = current;
+    current = index;
+
+    slides.forEach((s, i) => {
+      s.classList.remove('active', 'exit-left');
+      if (i === current) {
+        s.classList.add('active');
+        // reset transform origin based on direction
+        if (direction === 'forward') {
+          s.style.transform = '';
+        }
+      } else if (i === prev && direction === 'forward') {
+        s.classList.add('exit-left');
+      }
+    });
+
+    counter.textContent = (current + 1) + ' / ' + total;
+    progress.style.width = ((current + 1) / total * 100) + '%';
+  }
+
+  function next() { show(current + 1, 'forward'); }
+  function prev() { show(current - 1, 'back'); }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+    if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+    if (e.key === 'Home') { e.preventDefault(); show(0, 'back'); }
+    if (e.key === 'End') { e.preventDefault(); show(total - 1, 'forward'); }
+  });
+
+  // Touch support
+  let touchStartX = 0;
+  document.addEventListener('touchstart', function (e) { touchStartX = e.changedTouches[0].screenX; });
+  document.addEventListener('touchend', function (e) {
+    const diff = e.changedTouches[0].screenX - touchStartX;
+    if (Math.abs(diff) > 50) { diff < 0 ? next() : prev(); }
+  });
+
+  // Init
+  show(0, 'forward');
+})();
+</script>
+</body>
+</html>

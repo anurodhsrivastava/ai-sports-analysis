@@ -1,0 +1,82 @@
+{
+  "coaching": {
+    "kneeFlexion": {
+      "critical": "Il tuo ginocchio {{leg}} e' quasi bloccato a {{angle}} gradi. Piega di piu' le ginocchia per assorbire il terreno e mantenere l'equilibrio. Punta a 90-140 gradi di flessione.",
+      "warning": "Il tuo ginocchio {{leg}} si sta raddrizzando a {{angle}} gradi. Cerca di mantenere una piegatura piu' atletica per un migliore assorbimento degli urti."
+    },
+    "shoulderAlignment": {
+      "critical": "Le tue spalle sono ruotate di {{angle}} gradi rispetto alla tavola. Mantieni le spalle piu' allineate alla direzione della tavola per un migliore controllo degli spigoli e stabilita'.",
+      "warning": "Le tue spalle sono leggermente fuori asse a {{angle}} gradi. Cerca di mantenere la parte superiore del corpo allineata con la direzione di marcia."
+    },
+    "stanceWidth": {
+      "warning": "La tua posizione sembra molto stretta. Allarga i piedi circa alla larghezza delle spalle per una migliore stabilita' e controllo della tavola."
+    },
+    "summary": {
+      "excellent": "Tecnica eccellente! Nessun problema rilevato.",
+      "needsAttention": "Diversi aspetti richiedono attenzione — concentrati sugli elementi critici qui sotto.",
+      "solid": "Tecnica complessivamente solida, con alcune aree da perfezionare.",
+      "decent": "Forma discreta con alcune aree che necessitano di lavoro."
+    }
+  },
+  "guidance": {
+    "kneeFlexion": {
+      "title": "Piega di Piu' le Ginocchia",
+      "whatIsWrong": "Le tue gambe sono troppo dritte. Andare con le ginocchia bloccate rende difficile assorbire le irregolarita', sterzare e mantenere l'equilibrio.",
+      "howToFix": "Mantieni una piegatura morbida e atletica in entrambe le ginocchia per tutta la discesa. Immagina di sederti su una sedia invisibile — i tuoi stinchi dovrebbero premere leggermente contro la parte anteriore degli scarponi.",
+      "drillTip": "Pratica \"1000 curve\" a bassa velocita': ad ogni curva, esagera la piegatura delle ginocchia finche' le cosce non bruciano leggermente. Questo costruisce la memoria muscolare per la posizione corretta.",
+      "idealRange": "35°–55°"
+    },
+    "shoulderAlignment": {
+      "title": "Allinea le Spalle con la Tavola",
+      "whatIsWrong": "Le tue spalle sono ruotate troppo aperte (rivolte a valle). Questo forza i fianchi fuori allineamento e rende le transizioni da spigolo a spigolo lente.",
+      "howToFix": "Mantieni le spalle approssimativamente parallele alla tavola. La mano anteriore dovrebbe puntare verso la punta; la mano posteriore resta sopra la coda. Pensa a un \"corpo superiore tranquillo\".",
+      "drillTip": "Afferra entrambe le estremita' di un bastone mentre scendi e mantienilo parallelo alla tavola. Se il bastone ruota, le tue spalle si stanno aprendo.",
+      "idealRange": "0°–15°"
+    },
+    "stanceWidth": {
+      "title": "Allarga la Tua Posizione",
+      "whatIsWrong": "I tuoi piedi sono troppo vicini. Una posizione stretta riduce la stabilita' e rende piu' difficile impegnare gli spigoli in modo efficace.",
+      "howToFix": "Imposta gli attacchi alla larghezza delle spalle o leggermente piu' larghi. Il tuo peso dovrebbe essere distribuito equamente tra entrambi i piedi con le ginocchia che seguono la linea delle dita dei piedi.",
+      "drillTip": "Su terreno piano, mettiti sulla tavola e chiedi a un amico di spingerti delicatamente da diverse direzioni. Allarga la posizione finche' non ti senti stabile contro ogni spinta.",
+      "idealRange": "Larghezza delle spalle"
+    }
+  },
+  "sportFacts": {
+    "snowboarding": [
+      "Il primo snowboard fu inventato nel 1965 da Sherman Poppen, che lo chiamo' \"Snurfer\".",
+      "Lo snowboard e' diventato sport olimpico nel 1998 ai Giochi Invernali di Nagano.",
+      "Gli snowboarder professionisti possono raggiungere velocita' superiori a 200 km/h su pendii ripidi.",
+      "La pista da snowboard piu' lunga del mondo e' di oltre 16 km all'Alpe d'Huez, in Francia.",
+      "Una corretta flessione del ginocchio assorbe fino al 70% dell'impatto del terreno, riducendo il rischio di infortuni.",
+      "Mantenere le spalle allineate con la tavola migliora il controllo degli spigoli del 40%.",
+      "Gli snowboarder professionisti si allenano fuori stagione con skateboard e surf.",
+      "L'halfpipe fu originariamente ispirato dagli half-pipe dello skateboard negli anni '80."
+    ],
+    "skiing": [
+      "Lo sci risale a oltre 5.000 anni fa — lo sci piu' antico mai trovato proviene dalla Norvegia.",
+      "La velocita' piu' alta mai registrata sugli sci e' di 254,958 km/h.",
+      "Lo sci alpino e' sport olimpico dai Giochi Invernali del 1936.",
+      "Una corretta tecnica di sci parallelo riduce l'affaticamento dei quadricipiti fino al 30%."
+    ],
+    "skateboarding": [
+      "Lo skateboard e' nato in California alla fine degli anni '40 come \"surf da marciapiede\".",
+      "L'ollie, inventato da Alan Gelfand nel 1978, ha rivoluzionato lo skateboard.",
+      "Lo skateboard ha debuttato alle Olimpiadi di Tokyo 2020.",
+      "Tony Hawk ha realizzato il primo 900 documentato (2,5 rotazioni) nel 1999."
+    ],
+    "surfing": [
+      "Il surf ha avuto origine nell'antica Polinesia ed e' stato documentato per la prima volta alle Hawaii.",
+      "La surfata piu' lunga mai registrata e' durata oltre 3 ore su un'onda fluviale continua.",
+      "Il surf e' diventato sport olimpico ai Giochi di Tokyo 2020.",
+      "L'onda piu' grande mai surfata era di 26,2 metri a Nazare, in Portogallo."
+    ],
+    "general": [
+      "L'analisi video puo' migliorare le prestazioni atletiche del 15-25% attraverso la correzione della tecnica.",
+      "La stima della postura tramite IA elabora fino a 30 fotogrammi al secondo per un feedback in tempo reale.",
+      "Gli atleti che rivedono i video delle loro prestazioni migliorano 2 volte piu' velocemente rispetto a chi non lo fa.",
+      "Un corretto allineamento del corpo riduce il rischio di infortuni fino al 50% in tutti gli sport su tavola.",
+      "L'analisi degli angoli articolari e' utilizzata dagli allenatori olimpici in oltre 15 discipline sportive.",
+      "Il corpo umano ha oltre 360 articolazioni — la nostra IA traccia le 10 piu' importanti per il tuo sport."
+    ]
+  }
+}

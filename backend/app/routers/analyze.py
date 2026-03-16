@@ -6,23 +6,46 @@ WebSocket /ws/{id}       - Real-time completion push (Fix #3)
 """
 
 import asyncio
+import os
+import re
 from pathlib import Path
 
-from fastapi import APIRouter, BackgroundTasks, Form, HTTPException, UploadFile, WebSocket, WebSocketDisconnect
+import magic
+
+from fastapi import (
+    APIRouter,
+    BackgroundTasks,
+    Form,
+    HTTPException,
+    Request,
+    UploadFile,
+    WebSocket,
+    WebSocketDisconnect,
+)
+from slowapi import Limiter
+from slowapi.util import get_remote_address
 
 from ..config import settings
 from ..models.schemas import AnalysisResult, AnalysisStatus, UploadResponse
 from ..sports.registry import SportRegistry
 from ..tasks.analysis_tasks import create_task, get_task_result, run_analysis, wait_for_completion
 
+limiter = Limiter(
+    key_func=get_remote_address,
+    enabled=os.environ.get("ENVIRONMENT") != "testing",
+)
 router = APIRouter(prefix="/api", tags=["analysis"])
 
 ALLOWED_EXTENSIONS = {".mp4", ".avi", ".mov", ".mkv", ".webm"}
+ALLOWED_MIMES = {"video/mp4", "video/x-msvideo", "video/quicktime", "video/x-matroska", "video/webm"}
 UPLOAD_CHUNK_SIZE = 1024 * 1024  # 1 MB
+_UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
 
 
 @router.post("/analyze", response_model=UploadResponse)
+@limiter.limit("10/hour")
 async def upload_and_analyze(
+    request: Request,
     file: UploadFile,
     background_tasks: BackgroundTasks,
     sport: str = Form(default="snowboard"),
@@ -66,14 +89,26 @@ async def upload_and_analyze(
                 )
             f.write(chunk)
 
+    # Validate actual file content (magic number check)
+    mime = magic.from_file(str(save_path), mime=True)
+    if mime not in ALLOWED_MIMES:
+        save_path.unlink(missing_ok=True)
+        raise HTTPException(
+            status_code=400,
+            detail=f"File content doesn't appear to be a valid video (detected: {mime}).",
+        )
+
     background_tasks.add_task(run_analysis, task_id, save_path, sport)
 
     return UploadResponse(task_id=task_id, status=AnalysisStatus.PROCESSING, sport=sport)
 
 
 @router.get("/analyze/{task_id}", response_model=AnalysisResult)
-async def get_analysis(task_id: str):
+@limiter.limit("120/minute")
+async def get_analysis(request: Request, task_id: str):
     """Get the status and results of an analysis task."""
+    if not _UUID_RE.match(task_id):
+        raise HTTPException(status_code=400, detail="Invalid task ID format.")
     result = get_task_result(task_id)
     if result is None:
         raise HTTPException(status_code=404, detail=f"Task {task_id} not found.")
@@ -86,6 +121,10 @@ async def get_analysis(task_id: str):
 
 @router.websocket("/ws/{task_id}")
 async def analysis_ws(websocket: WebSocket, task_id: str):
+    """WebSocket that sends the analysis result once it completes."""
+    if not _UUID_RE.match(task_id):
+        await websocket.close(code=1008, reason="Invalid task ID format")
+        return
     await websocket.accept()
     try:
         result = get_task_result(task_id)

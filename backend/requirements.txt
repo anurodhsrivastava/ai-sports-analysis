@@ -6,4 +6,24 @@ pydantic-settings>=2.1.0
 torch>=2.1.0
 torchvision>=0.16.0
 opencv-python>=4.9.0
-numpy>=1.26.0
+numpy>=1.26.0,<2.0.0
+open-clip-torch>=2.24.0
+Pillow>=10.0.0
+mediapipe>=0.10.0
+python-magic>=0.4.27
+slowapi>=0.1.9
+# Database
+sqlalchemy>=2.0.0
+alembic>=1.13.0
+# Auth
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+# Payments
+stripe>=8.0.0
+# Testing
+pytest>=8.0.0
+pytest-benchmark>=4.0.0
+pytest-asyncio>=0.23.0
+httpx>=0.27.0
+psutil>=5.9.0
+locust>=2.20.0

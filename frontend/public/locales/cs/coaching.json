@@ -1,0 +1,82 @@
+{
+  "coaching": {
+    "kneeFlexion": {
+      "critical": "Vaše {{leg}} koleno je téměř zamčené v {{angle}} stupních. Více pokrčte kolena, abyste tlumili terén a udrželi rovnováhu. Mířte na 90–140 stupňů pokrčení.",
+      "warning": "Vaše {{leg}} koleno se narovnává na {{angle}} stupňů. Snažte se udržovat sportovnější pokrčení pro lepší tlumení nárazů."
+    },
+    "shoulderAlignment": {
+      "critical": "Vaše ramena jsou otočená o {{angle}} stupňů od prkna. Udržujte ramena více zarovnaná se směrem prkna pro lepší kontrolu hran a stabilitu.",
+      "warning": "Vaše ramena jsou mírně mimo osu na {{angle}} stupňů. Snažte se udržovat horní tělo zarovnané se směrem jízdy."
+    },
+    "stanceWidth": {
+      "warning": "Váš postoj vypadá velmi úzce. Roztáhněte nohy přibližně na šířku ramen pro lepší stabilitu a kontrolu prkna."
+    },
+    "summary": {
+      "excellent": "Vynikající technika! Žádné problémy nebyly zjištěny.",
+      "needsAttention": "Několik oblastí vyžaduje pozornost — zaměřte se na kritické položky níže.",
+      "solid": "Celkově solidní technika, s několika oblastmi ke zdokonalení.",
+      "decent": "Slušná forma s některými oblastmi, které potřebují práci."
+    }
+  },
+  "guidance": {
+    "kneeFlexion": {
+      "title": "Více pokrčte kolena",
+      "whatIsWrong": "Vaše nohy jsou příliš rovné. Jízda se zamčenými koleny ztěžuje tlumení nerovností, řízení a udržení rovnováhy.",
+      "howToFix": "Udržujte měkké, sportovní pokrčení v obou kolenou po celou dobu jízdy. Představte si, že si sedáte na neviditelnou židli — vaše holeně by měly lehce tlačit na přední část bot.",
+      "drillTip": "Nacvičujte '1000 zatáček' při nízké rychlosti: při každé zatáčce přeháněně pokrčte kolena, dokud vás nezačnou mírně pálit stehna. Tím si vybudujete svalovou paměť správné pozice.",
+      "idealRange": "35°–55°"
+    },
+    "shoulderAlignment": {
+      "title": "Zarovnejte ramena s prknem",
+      "whatIsWrong": "Vaše ramena jsou příliš otevřená (čelem z kopce). To nutí vaše boky z pozice a zpomaluje přechody z hrany na hranu.",
+      "howToFix": "Udržujte ramena přibližně rovnoběžně s prknem. Vaše přední ruka by měla směřovat ke špičce; zadní ruka zůstává nad patkou. Myslete na 'klidné horní tělo'.",
+      "drillTip": "Uchopte oběma rukama hůl nebo tyč při jízdě a držte ji rovnoběžně s prknem. Pokud se tyč otáčí, vaše ramena se otevírají.",
+      "idealRange": "0°–15°"
+    },
+    "stanceWidth": {
+      "title": "Rozšiřte svůj postoj",
+      "whatIsWrong": "Vaše nohy jsou příliš blízko u sebe. Úzký postoj snižuje stabilitu a ztěžuje efektivní práci s hranami.",
+      "howToFix": "Nastavte vázání na šířku ramen nebo mírně šířeji. Vaše váha by měla být rovnoměrně rozložena mezi oběma nohama s koleny nad špičkami.",
+      "drillTip": "Na rovném terénu se postavte na prkno a nechte kamaráda, aby vás jemně strkal z různých směrů. Rozšiřujte postoj, dokud se nebudete cítit stabilně při každém strčení.",
+      "idealRange": "Na šířku ramen"
+    }
+  },
+  "sportFacts": {
+    "snowboarding": [
+      "První snowboard vynalezl v roce 1965 Sherman Poppen a nazval ho 'Snurfer'.",
+      "Snowboarding se stal olympijským sportem v roce 1998 na Zimních hrách v Naganu.",
+      "Profesionální snowboardisté mohou na strmých svazích dosáhnout rychlosti přes 200 km/h (125 mph).",
+      "Nejdelší snowboardový sjezd na světě měří přes 16 km v Alpe d'Huez ve Francii.",
+      "Správné pokrčení kolen tlumí až 70 % nárazů terénu a snižuje riziko zranění.",
+      "Správné zarovnání ramen s prknem zlepšuje kontrolu hran o 40 %.",
+      "Profesionální snowboardisté trénují mimo sezónu skateboarding a surfování.",
+      "Halfpipe byl původně inspirován skateboardovými rampami z 80. let."
+    ],
+    "skiing": [
+      "Lyžování má více než 5 000 let — nejstarší nalezená lyže pochází z Norska.",
+      "Nejvyšší zaznamenaná rychlost na lyžích je 254,958 km/h (158 mph).",
+      "Alpské lyžování je olympijským sportem od Zimních her 1936.",
+      "Správná technika paralelních lyží snižuje únavu stehenních svalů až o 30 %."
+    ],
+    "skateboarding": [
+      "Skateboarding vznikl v Kalifornii na konci 40. let jako 'chodníkový surfing'.",
+      "Ollie, vynalezené Alanem Gelfandem v roce 1978, způsobilo revoluci ve skateboardingu.",
+      "Skateboarding debutoval na olympijských hrách v Tokiu 2020.",
+      "Tony Hawk předvedl první zdokumentovaný 900 (2,5 otáčky) v roce 1999."
+    ],
+    "surfing": [
+      "Surfování vzniklo ve starověké Polynésii a bylo poprvé zdokumentováno na Havaji.",
+      "Nejdelší zaznamenaná surfová jízda trvala přes 3 hodiny na nekonečné říční vlně.",
+      "Surfování se stalo olympijským sportem na hrách v Tokiu 2020.",
+      "Největší vlna, jaká kdy byla surfována, měřila 26,2 metrů (86 stop) v Nazaré v Portugalsku."
+    ],
+    "general": [
+      "Videoanalýza může zlepšit sportovní výkon o 15–25 % díky korekci techniky.",
+      "AI odhad pozice zpracovává až 30 snímků za sekundu pro zpětnou vazbu v reálném čase.",
+      "Sportovci, kteří si prohlížejí video svého výkonu, se zlepšují 2x rychleji než ti, kteří ne.",
+      "Správné zarovnání těla snižuje riziko zranění až o 50 % ve všech prknových sportech.",
+      "Analýza úhlů kloubů je využívána olympijskými trenéry ve více než 15 sportovních disciplínách.",
+      "Lidské tělo má přes 360 kloubů — naše AI sleduje 10 nejdůležitějších pro váš sport."
+    ]
+  }
+}

@@ -44,6 +44,9 @@ export default function App() {
   const [user, setUser] = useState<User | null>(null);
   const [showLogin, setShowLogin] = useState(false);
 
+  // Auth error
+  const [loginError, setLoginError] = useState<string | null>(null);
+
   // Wishlist
   const [showWishlist, setShowWishlist] = useState(false);
   const [detectedUnsupportedSport, setDetectedUnsupportedSport] = useState("");
@@ -138,6 +141,7 @@ export default function App() {
   };
 
   const handleLogin = async (provider: AuthProvider, email?: string, password?: string) => {
+    setLoginError(null);
     try {
       if (provider === "email" && password) {
         const resp = await login(provider, password, email);
@@ -161,12 +165,17 @@ export default function App() {
         }
       }
       setShowLogin(false);
-    } catch {
-      // Show error feedback
+    } catch (err: unknown) {
+      const msg =
+        err && typeof err === "object" && "response" in err
+          ? (err as { response?: { data?: { detail?: string } } }).response?.data?.detail
+          : undefined;
+      setLoginError(msg ?? "Login failed. Please try again.");
     }
   };
 
   const handleRegister = async (email: string, password: string, displayName?: string) => {
+    setLoginError(null);
     try {
       const resp = await register(email, password, displayName);
       if (resp.success && resp.user_id) {
@@ -178,8 +187,12 @@ export default function App() {
         });
       }
       setShowLogin(false);
-    } catch {
-      // Show error
+    } catch (err: unknown) {
+      const msg =
+        err && typeof err === "object" && "response" in err
+          ? (err as { response?: { data?: { detail?: string } } }).response?.data?.detail
+          : undefined;
+      setLoginError(msg ?? "Registration failed. Please try again.");
     }
   };
 
@@ -379,9 +392,10 @@ export default function App() {
       {/* Login Modal */}
       <LoginModal
         isOpen={showLogin}
-        onClose={() => setShowLogin(false)}
+        onClose={() => { setShowLogin(false); setLoginError(null); }}
         onLogin={handleLogin}
         onRegister={handleRegister}
+        error={loginError}
       />
 
       {/* Wishlist Modal */}

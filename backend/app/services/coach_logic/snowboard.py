@@ -5,6 +5,7 @@ import numpy as np
 from .base import (
     CoachingTip,
     CoachingSummaryData,
+    Confidence,
     Severity,
     compute_angle,
     compute_vector_angle,
@@ -47,6 +48,8 @@ def analyze_knee_flexion(kp: np.ndarray, leg: str, frame_idx: int) -> CoachingTi
             threshold=170.0,
             message=f"Your {leg} knee is almost locked at {angle:.0f}\u00b0. Bend your knees more to absorb terrain and maintain balance. Aim for 90-140\u00b0 of flexion.",
             severity=Severity.CRITICAL, frame_range=(frame_idx, frame_idx),
+            message_key="coaching.kneeFlexion.critical",
+            message_params={"leg": leg, "angle": round(angle)},
         )
     elif angle > 160:
         return CoachingTip(
@@ -54,6 +57,8 @@ def analyze_knee_flexion(kp: np.ndarray, leg: str, frame_idx: int) -> CoachingTi
             threshold=160.0,
             message=f"Your {leg} knee is getting straight at {angle:.0f}\u00b0. Try to maintain a more athletic bend for better shock absorption.",
             severity=Severity.WARNING, frame_range=(frame_idx, frame_idx),
+            message_key="coaching.kneeFlexion.warning",
+            message_params={"leg": leg, "angle": round(angle)},
         )
     return None
 
@@ -71,6 +76,9 @@ def analyze_shoulder_alignment(kp: np.ndarray, frame_idx: int) -> CoachingTip | 
             threshold=30.0,
             message=f"Your shoulders are rotated {angle:.0f}\u00b0 from the board. Keep your shoulders more aligned with the board direction for better edge control and stability.",
             severity=Severity.CRITICAL, frame_range=(frame_idx, frame_idx),
+            message_key="coaching.shoulderAlignment.critical",
+            message_params={"angle": round(angle)},
+            confidence=Confidence.LOW, score_weight=0.4,
         )
     elif angle > 15:
         return CoachingTip(
@@ -78,6 +86,9 @@ def analyze_shoulder_alignment(kp: np.ndarray, frame_idx: int) -> CoachingTip | 
             threshold=15.0,
             message=f"Your shoulders are slightly off-axis at {angle:.0f}\u00b0. Try to keep your upper body aligned with your direction of travel.",
             severity=Severity.WARNING, frame_range=(frame_idx, frame_idx),
+            message_key="coaching.shoulderAlignment.warning",
+            message_params={"angle": round(angle)},
+            confidence=Confidence.LOW, score_weight=0.4,
         )
     return None
 
@@ -94,6 +105,9 @@ def analyze_stance_width(kp: np.ndarray, frame_idx: int) -> CoachingTip | None:
             threshold=20.0,
             message="Your stance looks very narrow. Widen your feet to about shoulder-width for better stability and board control.",
             severity=Severity.WARNING, frame_range=(frame_idx, frame_idx),
+            message_key="coaching.stanceWidth.warning",
+            message_params={},
+            confidence=Confidence.LOW, score_weight=0.4,
         )
     return None
 
@@ -142,5 +156,5 @@ class SnowboardCoach:
             "avg_shoulder_alignment": round(float(np.mean(shoulder_angles)), 1) if shoulder_angles else None,
         }
 
-    def generate_coaching_summary(self, tips: list[CoachingTip]) -> CoachingSummaryData:
-        return generate_coaching_summary(tips)
+    def generate_coaching_summary(self, tips: list[CoachingTip], total_frames: int = 0) -> CoachingSummaryData:
+        return generate_coaching_summary(tips, total_frames)

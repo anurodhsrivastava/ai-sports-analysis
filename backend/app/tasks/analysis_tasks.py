@@ -27,9 +27,11 @@ from ..models.schemas import (
     CoachingSummary,
     CoachingTipSchema,
     Severity,
+    SportMismatchWarning,
     SportSpecificStats,
 )
 from ..services.inference import MockPoseEstimator, PyTorchPoseEstimator, create_estimator
+from ..services.scene_detection import detect_sport_mismatch
 from ..services.video_processor import create_annotated_video
 from ..sports.registry import SportRegistry
 
@@ -175,6 +177,21 @@ def run_analysis(task_id: str, video_path: Path, sport: str) -> None:
         return
 
     try:
+        # Step 0: Scene-based sport mismatch detection (CLIP-based)
+        mismatch_data = detect_sport_mismatch(video_path, sport)
+        if mismatch_data:
+            sport_mismatch = SportMismatchWarning(**mismatch_data)
+            task_store.set(
+                task_id,
+                AnalysisResult(
+                    task_id=task_id,
+                    status=AnalysisStatus.COMPLETED,
+                    sport=sport,
+                    sport_mismatch=sport_mismatch,
+                ),
+            )
+            return
+
         definition = SportRegistry.get_definition(sport)
         coach = SportRegistry.get_coach(sport)
 
@@ -208,6 +225,8 @@ def run_analysis(task_id: str, video_path: Path, sport: str) -> None:
                 angle_value=t.angle_value,
                 threshold=t.threshold,
                 message=t.message,
+                message_key=getattr(t, 'message_key', ''),
+                message_params=getattr(t, 'message_params', {}),
                 severity=Severity(t.severity.value),
                 frame_range=t.frame_range,
             )
@@ -228,9 +247,12 @@ def run_analysis(task_id: str, video_path: Path, sport: str) -> None:
         summary = SportSpecificStats(stats=stats)
 
         # Step 5: Generate coaching summary
-        coaching_summary_data = coach.generate_coaching_summary(tips)
+        coaching_summary_data = coach.generate_coaching_summary(tips, len(all_keypoints))
         coaching_summary = CoachingSummary(
             overall_assessment=coaching_summary_data.overall_assessment,
+            overall_assessment_key=getattr(coaching_summary_data, 'overall_assessment_key', ''),
+            overall_score=getattr(coaching_summary_data, 'overall_score', 0),
+            overall_grade=getattr(coaching_summary_data, 'overall_grade', ''),
             category_breakdowns=[
                 CategoryBreakdown(
                     category=b.category,

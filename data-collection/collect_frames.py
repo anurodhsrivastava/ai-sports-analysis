@@ -23,7 +23,7 @@ NUM_FRAMES = 20
 SNOW_SPORTS = {"snowboard", "skiing"}
 
 
-def download_video(url: str, output_dir: Path) -> Path | None:
+def download_video(url: str, output_dir: Path, use_cookies: bool = False) -> Path | None:
     """Download a video at 1080p using yt-dlp."""
     output_dir.mkdir(parents=True, exist_ok=True)
     output_template = str(output_dir / "%(title)s.%(ext)s")
@@ -34,8 +34,17 @@ def download_video(url: str, output_dir: Path) -> Path | None:
         "--merge-output-format", "mp4",
         "--recode-video", "mp4",
         "-o", output_template,
-        url,
     ]
+
+    # Add deno JS runtime path for YouTube extraction
+    deno_path = Path.home() / ".deno" / "bin" / "deno"
+    if deno_path.exists():
+        cmd.extend(["--js-runtimes", f"deno:{deno_path}"])
+
+    if use_cookies:
+        cmd.extend(["--cookies-from-browser", "chrome"])
+
+    cmd.append(url)
 
     try:
         result = subprocess.run(cmd, capture_output=True, text=True, check=True)
@@ -137,7 +146,17 @@ def extract_top_frames(
     return saved_paths
 
 
-def process_urls(sport: str) -> None:
+def _existing_labeled_dirs(sport: str) -> set[str]:
+    """Return set of already-labeled folder names for skip detection."""
+    sport_dir = LABELED_DIR / sport
+    if not sport_dir.exists():
+        return set()
+    return {d.name for d in sport_dir.iterdir() if d.is_dir() and list(d.glob("*.png"))}
+
+
+def process_urls(sport: str, use_cookies: bool = False, sleep_sec: int = 0) -> None:
+    import time
+
     urls_file = URLS_DIR / f"{sport}.txt"
     if not urls_file.exists():
         print(f"URLs file not found: {urls_file}")
@@ -154,33 +173,62 @@ def process_urls(sport: str) -> None:
         print(f"No URLs found in {urls_file}. Add video URLs (one per line).")
         sys.exit(1)
 
-    print(f"Processing {len(urls)} {sport} video(s)...")
-
+    existing = _existing_labeled_dirs(sport)
     videos_dir = VIDEOS_DIR / sport
+    downloaded = 0
+    skipped = 0
+    failed = 0
+
+    print(f"Processing {len(urls)} {sport} video(s)...")
+    if existing:
+        print(f"Already have {len(existing)} labeled video(s), will skip those.")
+    if use_cookies:
+        print("Using browser cookies for authentication.")
+    if sleep_sec:
+        print(f"Sleeping {sleep_sec}s between downloads to avoid rate limits.")
 
     for i, url in enumerate(urls, 1):
         print(f"\n{'=' * 60}")
         print(f"Video {i}/{len(urls)}: {url}")
         print(f"{'=' * 60}")
 
-        video_path = download_video(url, videos_dir)
+        # Download video
+        video_path = download_video(url, videos_dir, use_cookies=use_cookies)
         if video_path is None:
             print(f"Skipping {url} - download failed")
+            failed += 1
             continue
 
         video_name = video_path.stem.replace(" ", "_")
+
+        # Skip frame extraction if already labeled
+        if video_name in existing:
+            print(f"Already labeled: {video_name}, skipping frame extraction")
+            skipped += 1
+            continue
+
         output_dir = LABELED_DIR / sport / video_name
         frames = extract_top_frames(video_path, output_dir, sport)
         print(f"Extracted {len(frames)} frames to {output_dir}")
+        downloaded += 1
 
-    print("\nData collection complete!")
+        if sleep_sec and i < len(urls):
+            print(f"Sleeping {sleep_sec}s...")
+            time.sleep(sleep_sec)
+
+    print(f"\nData collection complete!")
+    print(f"  New: {downloaded}, Skipped (existing): {skipped}, Failed: {failed}")
 
 
 def main():
     parser = argparse.ArgumentParser(description="Collect frames for sport pose labeling")
     parser.add_argument("--sport", type=str, required=True, help="Sport name")
+    parser.add_argument("--cookies", action="store_true",
+                        help="Use Chrome cookies for YouTube authentication")
+    parser.add_argument("--sleep", type=int, default=3,
+                        help="Seconds to sleep between downloads (default: 3)")
     args = parser.parse_args()
-    process_urls(args.sport)
+    process_urls(args.sport, use_cookies=args.cookies, sleep_sec=args.sleep)
 
 
 if __name__ == "__main__":

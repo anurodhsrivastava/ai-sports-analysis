@@ -1,0 +1,82 @@
+{
+  "coaching": {
+    "kneeFlexion": {
+      "critical": "Tu rodilla {{leg}} esta casi bloqueada a {{angle}} grados. Flexiona mas las rodillas para absorber el terreno y mantener el equilibrio. Apunta a 90-140 grados de flexion.",
+      "warning": "Tu rodilla {{leg}} se esta poniendo recta a {{angle}} grados. Intenta mantener una flexion mas atletica para una mejor absorcion de impactos."
+    },
+    "shoulderAlignment": {
+      "critical": "Tus hombros estan rotados {{angle}} grados respecto a la tabla. Mantiene los hombros mas alineados con la direccion de la tabla para un mejor control de cantos y estabilidad.",
+      "warning": "Tus hombros estan ligeramente desalineados a {{angle}} grados. Intenta mantener la parte superior del cuerpo alineada con tu direccion de desplazamiento."
+    },
+    "stanceWidth": {
+      "warning": "Tu postura se ve muy estrecha. Separa los pies aproximadamente al ancho de los hombros para mayor estabilidad y control de la tabla."
+    },
+    "summary": {
+      "excellent": "Tecnica excelente! No se detectaron problemas.",
+      "needsAttention": "Varios problemas necesitan atencion -- concentrate en los elementos criticos a continuacion.",
+      "solid": "Buena tecnica en general, con algunas areas para perfeccionar.",
+      "decent": "Forma decente con algunas áreas que necesitan trabajo."
+    }
+  },
+  "guidance": {
+    "kneeFlexion": {
+      "title": "Flexiona Mas las Rodillas",
+      "whatIsWrong": "Tus piernas estan demasiado rectas. Andar con las rodillas bloqueadas dificulta absorber los baches, girar y mantener el equilibrio.",
+      "howToFix": "Mantiene una flexion suave y atletica en ambas rodillas durante todo el recorrido. Imagina que te sientas en una silla invisible -- tus espinillas deben presionar ligeramente contra la parte frontal de tus botas.",
+      "drillTip": "Practica \"1000 giros\" a baja velocidad: en cada giro, exagera la flexion de rodillas hasta que tus muslos ardan ligeramente. Esto crea memoria muscular para la posicion correcta.",
+      "idealRange": "35 grados--55 grados"
+    },
+    "shoulderAlignment": {
+      "title": "Alinea los Hombros con la Tabla",
+      "whatIsWrong": "Tus hombros estan rotados demasiado abiertos (mirando cuesta abajo). Esto fuerza las caderas fuera de alineacion y hace que las transiciones de canto a canto sean lentas.",
+      "howToFix": "Mantiene los hombros aproximadamente paralelos a la tabla. Tu mano delantera debe apuntar hacia la punta; tu mano trasera se queda sobre la cola. Piensa en \"parte superior del cuerpo tranquila\".",
+      "drillTip": "Agarra ambos extremos de un palo o baston mientras andas y mantenlo paralelo a la tabla. Si el palo rota, tus hombros se estan abriendo.",
+      "idealRange": "0 grados--15 grados"
+    },
+    "stanceWidth": {
+      "title": "Amplia Tu Postura",
+      "whatIsWrong": "Tus pies estan demasiado juntos. Una postura estrecha reduce la estabilidad y dificulta usar los cantos de manera efectiva.",
+      "howToFix": "Coloca tus fijaciones al ancho de los hombros o un poco mas. Tu peso debe estar distribuido uniformemente entre ambos pies con las rodillas alineadas sobre los dedos de los pies.",
+      "drillTip": "En terreno plano, parate en tu tabla y pide a un amigo que te empuje suavemente desde diferentes direcciones. Amplia tu postura hasta que te sientas estable ante cada empujon.",
+      "idealRange": "Ancho de hombros"
+    }
+  },
+  "sportFacts": {
+    "snowboarding": [
+      "La primera tabla de snowboard fue inventada en 1965 por Sherman Poppen, quien la llamo \"Snurfer\".",
+      "El snowboard se convirtio en deporte olimpico en 1998 en los Juegos de Invierno de Nagano.",
+      "Los snowboarders profesionales pueden alcanzar velocidades superiores a 200 km/h en pendientes pronunciadas.",
+      "La pista de snowboard mas larga del mundo tiene mas de 16 km en Alpe d'Huez, Francia.",
+      "Una flexion de rodillas adecuada absorbe hasta el 70% del impacto del terreno, reduciendo el riesgo de lesiones.",
+      "Mantener los hombros alineados con la tabla mejora el control de cantos en un 40%.",
+      "Los snowboarders profesionales entrenan en temporada baja con skateboarding y surf.",
+      "El halfpipe se inspiro originalmente en los half-pipes de skateboard en la decada de 1980."
+    ],
+    "skiing": [
+      "El esqui tiene mas de 5,000 anos de antiguedad -- el esqui mas antiguo encontrado es de Noruega.",
+      "La velocidad mas rapida registrada en esquis es de 254.958 km/h.",
+      "El esqui alpino es deporte olimpico desde los Juegos de Invierno de 1936.",
+      "Una tecnica adecuada de esqui paralelo reduce la fatiga de cuadriceps hasta en un 30%."
+    ],
+    "skateboarding": [
+      "El skateboarding se origino en California a finales de los anos 1940 como \"surf de acera\".",
+      "El ollie, inventado por Alan Gelfand en 1978, revoluciono el skateboarding.",
+      "El skateboarding debuto en los Juegos Olimpicos de Tokio 2020.",
+      "Tony Hawk logro el primer 900 documentado (2.5 revoluciones) en 1999."
+    ],
+    "surfing": [
+      "El surf se origino en la antigua Polinesia y fue documentado por primera vez en Hawai.",
+      "La sesion de surf mas larga registrada duro mas de 3 horas en una ola de rio interminable.",
+      "El surf se convirtio en deporte olimpico en los Juegos de Tokio 2020.",
+      "La ola mas grande jamas surfeada fue de 26.2 metros (86 pies) en Nazare, Portugal."
+    ],
+    "general": [
+      "El analisis de video puede mejorar el rendimiento atletico entre un 15-25% mediante la correccion de tecnica.",
+      "La estimacion de postura con IA procesa hasta 30 fotogramas por segundo para retroalimentacion en tiempo real.",
+      "Los atletas que revisan video de su rendimiento mejoran 2 veces mas rapido que los que no lo hacen.",
+      "Una alineacion corporal adecuada reduce el riesgo de lesiones hasta en un 50% en todos los deportes de tabla.",
+      "El analisis de angulos articulares es utilizado por entrenadores olimpicos en mas de 15 disciplinas deportivas.",
+      "El cuerpo humano tiene mas de 360 articulaciones -- nuestra IA rastrea las 10 mas criticas para tu deporte."
+    ]
+  }
+}

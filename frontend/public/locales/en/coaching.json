@@ -1,0 +1,94 @@
+{
+  "coaching": {
+    "kneeFlexion": {
+      "critical": "Your {{leg}} knee is almost locked at {{angle}} degrees. Bend your knees more to absorb terrain and maintain balance. Aim for 90-140 degrees of flexion.",
+      "warning": "Your {{leg}} knee is getting straight at {{angle}} degrees. Try to maintain a more athletic bend for better shock absorption."
+    },
+    "shoulderAlignment": {
+      "critical": "Your shoulders are rotated {{angle}} degrees from the board. Keep your shoulders more aligned with the board direction for better edge control and stability.",
+      "warning": "Your shoulders are slightly off-axis at {{angle}} degrees. Try to keep your upper body aligned with your direction of travel."
+    },
+    "stanceWidth": {
+      "warning": "Your stance looks very narrow. Widen your feet to about shoulder-width for better stability and board control."
+    },
+    "summary": {
+      "excellent": "Excellent technique! No issues detected.",
+      "needsAttention": "Several issues need attention — focus on the critical items below.",
+      "solid": "Solid technique overall, with a few areas to refine.",
+      "decent": "Decent form with some areas that need work."
+    }
+  },
+  "guidance": {
+    "kneeFlexion": {
+      "title": "Bend Your Knees More",
+      "whatIsWrong": "Your legs are too straight. Riding with locked-out knees makes it hard to absorb bumps, steer, and stay balanced.",
+      "howToFix": "Keep a soft, athletic bend in both knees throughout the run. Imagine sitting into an invisible chair — your shins should press lightly against the front of your boots.",
+      "drillTip": "Practice \"1000 turns\" at low speed: on each turn, exaggerate the knee bend until your thighs burn slightly. This builds muscle memory for the correct position.",
+      "idealRange": "35°–55°"
+    },
+    "shoulderAlignment": {
+      "title": "Align Your Shoulders with the Board",
+      "whatIsWrong": "Your shoulders are rotated too far open (facing downhill). This forces your hips out of alignment and makes edge-to-edge transitions sluggish.",
+      "howToFix": "Keep your shoulders roughly parallel to the board. Your lead hand should point toward the nose; your rear hand stays over the tail. Think \"quiet upper body.\"",
+      "drillTip": "Grab both ends of a pole or stick while riding and keep it parallel to the board. If the stick rotates, your shoulders are opening up.",
+      "idealRange": "0°–15°"
+    },
+    "stanceWidth": {
+      "title": "Widen Your Stance",
+      "whatIsWrong": "Your feet are too close together. A narrow stance reduces stability and makes it harder to engage your edges effectively.",
+      "howToFix": "Set your bindings at shoulder width or slightly wider. Your weight should be evenly distributed between both feet with your knees tracking over your toes.",
+      "drillTip": "On flat ground, stand in your board and have a friend push you gently from different directions. Widen your stance until you feel stable against every push.",
+      "idealRange": "Shoulder width apart"
+    }
+  },
+  "sportFacts": {
+    "snowboard": [
+      "The first snowboard was invented in 1965 by Sherman Poppen, who called it the \"Snurfer.\"",
+      "Snowboarding became an Olympic sport in 1998 at the Nagano Winter Games.",
+      "Pro snowboarders can reach speeds over 200 km/h (125 mph) on steep slopes.",
+      "The world's longest snowboard run is over 16 km at Alpe d'Huez, France.",
+      "Proper knee flexion absorbs up to 70% of terrain impact, reducing injury risk.",
+      "Keeping your shoulders aligned with the board improves edge control by 40%.",
+      "Professional snowboarders train off-season with skateboarding and surfing.",
+      "The halfpipe was originally inspired by skateboard half-pipes in the 1980s."
+    ],
+    "skiing": [
+      "Skiing dates back over 5,000 years — the oldest ski ever found is from Norway.",
+      "The fastest recorded speed on skis is 254.958 km/h (158 mph).",
+      "Alpine skiing has been an Olympic sport since the 1936 Winter Games.",
+      "Proper parallel ski technique reduces quad fatigue by up to 30%."
+    ],
+    "running": [
+      "The marathon distance (42.195 km) was standardized at the 1908 London Olympics.",
+      "Elite marathon runners maintain a cadence of about 180 steps per minute.",
+      "Proper running form can reduce injury risk by up to 50%.",
+      "The human body is uniquely adapted for long-distance running among primates."
+    ],
+    "golf": [
+      "The longest drive ever recorded was 515 yards by Mike Austin in 1974.",
+      "A golf ball has between 300 and 500 dimples that improve aerodynamics.",
+      "The average golf swing generates about 2,000 pounds of force.",
+      "Tiger Woods' club head speed exceeds 125 mph during a drive."
+    ],
+    "yoga": [
+      "Yoga originated in ancient India over 5,000 years ago.",
+      "There are over 84 classic yoga asanas (poses) in traditional practice.",
+      "Regular yoga practice can improve flexibility by 35% in just 8 weeks.",
+      "Yoga has been shown to reduce cortisol levels by up to 25%."
+    ],
+    "home_workout": [
+      "Bodyweight exercises have been used for military fitness training for centuries.",
+      "A proper push-up engages over 200 muscles simultaneously.",
+      "Squats are considered the king of all exercises for lower body strength.",
+      "Plank exercises can strengthen over 20 different muscle groups at once."
+    ],
+    "general": [
+      "Video analysis can improve athletic performance by 15-25% through technique correction.",
+      "AI pose estimation processes up to 30 frames per second for real-time feedback.",
+      "Athletes who review video of their performance improve 2x faster than those who don't.",
+      "Proper body alignment reduces injury risk by up to 50% across all sports.",
+      "Joint angle analysis is used by Olympic coaches across 15+ sports disciplines.",
+      "The human body has over 360 joints — our AI tracks the 10 most critical for your sport."
+    ]
+  }
+}

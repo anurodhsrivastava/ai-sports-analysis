@@ -1,15 +1,16 @@
 """
-Sport-Aware Auto-Labeling with MediaPipe Pose
-Generates initial labels using MediaPipe, per-sport keypoint mapping.
+Auto-Labeling with MediaPipe Pose
+Generates initial keypoint labels using MediaPipe.
+Sport-aware: uses correct bodypart names and mappings per sport.
 
 Usage:
-    python dlc-config/auto_label.py --sport snowboard              # Label all folders for sport
-    python dlc-config/auto_label.py --sport running FOLDER_NAME    # Label one folder
+    python dlc-config/auto_label.py --sport snowboard   # Label snowboard
+    python dlc-config/auto_label.py --sport skiing       # Label skiing
+    python dlc-config/auto_label.py --sport all          # Label all sports
+    python dlc-config/auto_label.py FOLDER_NAME          # Label one folder (legacy)
 """
 
-import argparse
 import csv
-import json
 import sys
 from pathlib import Path
 
@@ -18,70 +19,76 @@ import mediapipe as mp
 import numpy as np
 
 LABELED_DATA_DIR = Path(__file__).parent.parent / "labeled-data"
-CONFIGS_DIR = Path(__file__).parent.parent / "training" / "configs"
 
+# MediaPipe Pose landmark indices
+# https://developers.google.com/mediapipe/solutions/vision/pose_landmarker
 MP_LANDMARK = mp.solutions.pose.PoseLandmark
 
-# MediaPipe mappings per sport
-# Running and home workout use pure body pose (all keypoints auto-detected)
-SPORT_MP_MAPPING = {
+# Minimum confidence to accept a landmark
+MIN_CONFIDENCE = 0.5
+
+# ── Per-sport configurations ──────────────────────────────────────────
+
+SPORT_CONFIGS = {
     "snowboard": {
-        "head": [MP_LANDMARK.NOSE],
-        "nose_shoulder": [MP_LANDMARK.LEFT_SHOULDER],
-        "tail_shoulder": [MP_LANDMARK.RIGHT_SHOULDER],
-        "center_hips": [MP_LANDMARK.LEFT_HIP, MP_LANDMARK.RIGHT_HIP],
-        "front_knee": [MP_LANDMARK.LEFT_KNEE],
-        "back_knee": [MP_LANDMARK.RIGHT_KNEE],
-        "front_ankle": [MP_LANDMARK.LEFT_ANKLE],
-        "back_ankle": [MP_LANDMARK.RIGHT_ANKLE],
-        # board_nose and board_tail require manual labeling
+        "bodyparts": [
+            "head", "nose_shoulder", "tail_shoulder", "center_hips",
+            "front_knee", "back_knee", "front_ankle", "back_ankle",
+            "board_nose", "board_tail",
+        ],
+        "mp_mapping": {
+            "head": [MP_LANDMARK.NOSE],
+            "nose_shoulder": [MP_LANDMARK.LEFT_SHOULDER],
+            "tail_shoulder": [MP_LANDMARK.RIGHT_SHOULDER],
+            "center_hips": [MP_LANDMARK.LEFT_HIP, MP_LANDMARK.RIGHT_HIP],
+            "front_knee": [MP_LANDMARK.LEFT_KNEE],
+            "back_knee": [MP_LANDMARK.RIGHT_KNEE],
+            "front_ankle": [MP_LANDMARK.LEFT_ANKLE],
+            "back_ankle": [MP_LANDMARK.RIGHT_ANKLE],
+        },
+        # board_nose, board_tail handled by auto_label_board.py
     },
     "skiing": {
-        "head": [MP_LANDMARK.NOSE],
-        "left_shoulder": [MP_LANDMARK.LEFT_SHOULDER],
-        "right_shoulder": [MP_LANDMARK.RIGHT_SHOULDER],
-        "center_hips": [MP_LANDMARK.LEFT_HIP, MP_LANDMARK.RIGHT_HIP],
-        "left_knee": [MP_LANDMARK.LEFT_KNEE],
-        "right_knee": [MP_LANDMARK.RIGHT_KNEE],
-        "left_ankle": [MP_LANDMARK.LEFT_ANKLE],
-        "right_ankle": [MP_LANDMARK.RIGHT_ANKLE],
-        # ski tips/tails and pole tips require manual labeling
-    },
-    "running": {
-        "head": [MP_LANDMARK.NOSE],
-        "neck": [MP_LANDMARK.LEFT_SHOULDER, MP_LANDMARK.RIGHT_SHOULDER],
-        "shoulder": [MP_LANDMARK.LEFT_SHOULDER],
-        "elbow": [MP_LANDMARK.LEFT_ELBOW],
-        "wrist": [MP_LANDMARK.LEFT_WRIST],
-        "hip": [MP_LANDMARK.LEFT_HIP],
-        "knee": [MP_LANDMARK.LEFT_KNEE],
-        "ankle": [MP_LANDMARK.LEFT_ANKLE],
-        "toe": [MP_LANDMARK.LEFT_FOOT_INDEX],
-        "heel": [MP_LANDMARK.LEFT_HEEL],
-        "mid_torso": [MP_LANDMARK.LEFT_SHOULDER, MP_LANDMARK.LEFT_HIP],
-        "pelvis": [MP_LANDMARK.LEFT_HIP, MP_LANDMARK.RIGHT_HIP],
-    },
-    "home_workout": {
-        "head": [MP_LANDMARK.NOSE],
-        "left_shoulder": [MP_LANDMARK.LEFT_SHOULDER],
-        "right_shoulder": [MP_LANDMARK.RIGHT_SHOULDER],
-        "left_elbow": [MP_LANDMARK.LEFT_ELBOW],
-        "right_elbow": [MP_LANDMARK.RIGHT_ELBOW],
-        "left_wrist": [MP_LANDMARK.LEFT_WRIST],
-        "right_wrist": [MP_LANDMARK.RIGHT_WRIST],
-        "left_hip": [MP_LANDMARK.LEFT_HIP],
-        "right_hip": [MP_LANDMARK.RIGHT_HIP],
-        "left_knee": [MP_LANDMARK.LEFT_KNEE],
-        "right_knee": [MP_LANDMARK.RIGHT_KNEE],
-        "left_ankle": [MP_LANDMARK.LEFT_ANKLE],
-        "right_ankle": [MP_LANDMARK.RIGHT_ANKLE],
+        "bodyparts": [
+            "head", "left_shoulder", "right_shoulder", "center_hips",
+            "left_knee", "right_knee", "left_ankle", "right_ankle",
+            "left_ski_tip", "left_ski_tail", "right_ski_tip", "right_ski_tail",
+            "left_pole_tip", "right_pole_tip",
+        ],
+        "mp_mapping": {
+            "head": [MP_LANDMARK.NOSE],
+            "left_shoulder": [MP_LANDMARK.LEFT_SHOULDER],
+            "right_shoulder": [MP_LANDMARK.RIGHT_SHOULDER],
+            "center_hips": [MP_LANDMARK.LEFT_HIP, MP_LANDMARK.RIGHT_HIP],
+            "left_knee": [MP_LANDMARK.LEFT_KNEE],
+            "right_knee": [MP_LANDMARK.RIGHT_KNEE],
+            "left_ankle": [MP_LANDMARK.LEFT_ANKLE],
+            "right_ankle": [MP_LANDMARK.RIGHT_ANKLE],
+            "left_pole_tip": [MP_LANDMARK.LEFT_WRIST],
+            "right_pole_tip": [MP_LANDMARK.RIGHT_WRIST],
+        },
+        # ski tips/tails handled by auto_label_board.py
     },
 }
 
-MIN_CONFIDENCE = 0.5
+# Default to snowboard for legacy usage
+DEFAULT_SPORT = "snowboard"
+
+
+def get_sport_config(sport: str | None) -> dict:
+    """Get sport config, defaulting to snowboard."""
+    s = sport or DEFAULT_SPORT
+    if s not in SPORT_CONFIGS:
+        print(f"WARNING: No config for sport '{s}', using snowboard defaults")
+        s = DEFAULT_SPORT
+    return SPORT_CONFIGS[s]
 
 
 def detect_pose(image_path: Path, mp_mapping: dict) -> dict[str, tuple[float, float]] | None:
+    """
+    Run MediaPipe Pose on a single image.
+    Returns dict of {bodypart: (x_pixel, y_pixel)} or None if no pose detected.
+    """
     img = cv2.imread(str(image_path))
     if img is None:
         return None
@@ -122,6 +129,7 @@ def detect_pose(image_path: Path, mp_mapping: dict) -> dict[str, tuple[float, fl
 
 
 def save_labels(folder_path: Path, frame_names: list[str], all_labels: dict, bodyparts: list[str]):
+    """Save labels in DLC-compatible CSV format."""
     csv_path = folder_path / "labels.csv"
 
     with open(csv_path, "w", newline="") as f:
@@ -152,10 +160,14 @@ def save_labels(folder_path: Path, frame_names: list[str], all_labels: dict, bod
     return csv_path
 
 
-def auto_label_folder(folder_path: Path, mp_mapping: dict, bodyparts: list[str]) -> dict:
+def auto_label_folder(folder_path: Path, sport_config: dict) -> dict:
+    """Auto-label all frames in a folder. Returns stats."""
     frame_paths = sorted(folder_path.glob("*.png"))
     if not frame_paths:
         return {"frames": 0, "detected": 0, "bodyparts_total": 0}
+
+    mp_mapping = sport_config["mp_mapping"]
+    bodyparts = sport_config["bodyparts"]
 
     frame_names = [p.name for p in frame_paths]
     all_labels: dict[str, dict[str, tuple[float, float]]] = {}
@@ -169,71 +181,126 @@ def auto_label_folder(folder_path: Path, mp_mapping: dict, bodyparts: list[str])
             detected_count += 1
             total_bodyparts += len(labels)
 
-    save_labels(folder_path, frame_names, all_labels, bodyparts)
+    csv_path = save_labels(folder_path, frame_names, all_labels, bodyparts)
 
     return {
         "frames": len(frame_paths),
         "detected": detected_count,
         "bodyparts_total": total_bodyparts,
         "avg_bodyparts": total_bodyparts / detected_count if detected_count else 0,
+        "csv_path": csv_path,
     }
 
 
+ALL_SPORTS = ["snowboard", "skiing"]
+
+
+def _find_label_folders(sport: str | None = None) -> list[Path]:
+    """Find all frame folders to label, respecting sport directory layout."""
+    folders = []
+
+    if sport and sport != "all":
+        sport_dir = LABELED_DATA_DIR / sport
+        if sport_dir.exists():
+            folders = sorted(
+                d for d in sport_dir.iterdir()
+                if d.is_dir() and list(d.glob("*.png"))
+            )
+    elif sport == "all":
+        for s in ALL_SPORTS:
+            sport_dir = LABELED_DATA_DIR / s
+            if sport_dir.exists():
+                folders.extend(
+                    sorted(d for d in sport_dir.iterdir()
+                           if d.is_dir() and list(d.glob("*.png")))
+                )
+        for d in sorted(LABELED_DATA_DIR.iterdir()):
+            if d.is_dir() and d.name not in ALL_SPORTS and list(d.glob("*.png")):
+                folders.append(d)
+    else:
+        folders = sorted(
+            d for d in LABELED_DATA_DIR.iterdir()
+            if d.is_dir() and list(d.glob("*.png"))
+        )
+
+    return folders
+
+
+def _detect_sport(folders: list[Path], explicit_sport: str | None) -> str:
+    """Detect sport from folder path or explicit argument."""
+    if explicit_sport and explicit_sport != "all":
+        return explicit_sport
+    if folders:
+        for sport in ALL_SPORTS:
+            if sport in str(folders[0]):
+                return sport
+    return DEFAULT_SPORT
+
+
 def main():
-    parser = argparse.ArgumentParser(description="Auto-label frames with MediaPipe")
-    parser.add_argument("--sport", type=str, required=True, help="Sport name")
-    parser.add_argument("folder", nargs="?", default=None, help="Optional specific folder name")
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Auto-label frames with MediaPipe Pose")
+    parser.add_argument("folder", nargs="?", default=None,
+                        help="Specific folder name to label (legacy mode)")
+    parser.add_argument("--sport", type=str, default=None,
+                        help="Sport to label (searches labeled-data/{sport}/)")
     args = parser.parse_args()
 
-    if args.sport not in SPORT_MP_MAPPING:
-        print(f"Unknown sport: {args.sport}. Available: {list(SPORT_MP_MAPPING.keys())}")
-        sys.exit(1)
-
-    mp_mapping = SPORT_MP_MAPPING[args.sport]
-
-    # Load bodyparts from config
-    config_path = CONFIGS_DIR / f"{args.sport}.json"
-    if config_path.exists():
-        with open(config_path) as f:
-            config = json.load(f)
-        bodyparts = config["bodyparts"]
-    else:
-        bodyparts = list(mp_mapping.keys())
-
-    sport_dir = LABELED_DATA_DIR / args.sport
-    if not sport_dir.exists():
-        sport_dir = LABELED_DATA_DIR
-
     if args.folder:
-        folders = [sport_dir / args.folder]
+        folders = [LABELED_DATA_DIR / args.folder]
         if not folders[0].exists():
             print(f"Folder not found: {folders[0]}")
             sys.exit(1)
     else:
-        folders = sorted(d for d in sport_dir.iterdir() if d.is_dir())
+        folders = _find_label_folders(args.sport)
 
-    auto_detected = [bp for bp in bodyparts if bp in mp_mapping]
-    manual_needed = [bp for bp in bodyparts if bp not in mp_mapping]
+    if not folders:
+        print("No folders found with frames to label.")
+        print("Run data collection first: python data-collection/collect_frames.py --sport <sport>")
+        sys.exit(1)
 
-    print(f"Auto-labeling {len(folders)} folder(s) for {args.sport} with MediaPipe Pose...")
-    print(f"Auto-detected: {', '.join(auto_detected)} ({len(auto_detected)}/{len(bodyparts)})")
-    if manual_needed:
-        print(f"Manual labeling needed: {', '.join(manual_needed)}\n")
+    sport_label = args.sport or "all"
+
+    # For "all" mode, process each sport separately with its own config
+    if sport_label == "all":
+        sports_to_process = ALL_SPORTS
+    else:
+        sports_to_process = [sport_label]
 
     total_frames = 0
     total_detected = 0
 
-    for folder in folders:
-        print(f"Processing: {folder.name}...")
-        stats = auto_label_folder(folder, mp_mapping, bodyparts)
-        total_frames += stats["frames"]
-        total_detected += stats["detected"]
-        print(
-            f"  {stats['detected']}/{stats['frames']} frames detected, "
-            f"avg {stats['avg_bodyparts']:.1f} bodyparts/frame"
-        )
+    for sport in sports_to_process:
+        config = get_sport_config(sport)
+        mp_mapping = config["mp_mapping"]
+        sport_folders = [f for f in folders if sport in str(f)]
+
+        if not sport_folders:
+            continue
+
+        auto_bps = list(mp_mapping.keys())
+        print(f"Auto-labeling {len(sport_folders)} folder(s) for {sport} with MediaPipe Pose...")
+        print(f"Bodyparts auto-detected: {', '.join(auto_bps)} ({len(auto_bps)}/{len(config['bodyparts'])})")
+        remaining = [bp for bp in config["bodyparts"] if bp not in mp_mapping]
+        if remaining:
+            print(f"Deferred to board labeler: {', '.join(remaining)}\n")
+
+        for folder in sport_folders:
+            print(f"Processing: {folder.relative_to(LABELED_DATA_DIR)}...")
+            stats = auto_label_folder(folder, config)
+            total_frames += stats["frames"]
+            total_detected += stats["detected"]
+            print(
+                f"  {stats['detected']}/{stats['frames']} frames detected, "
+                f"avg {stats['avg_bodyparts']:.1f} bodyparts/frame"
+            )
 
     print(f"\nDone! {total_detected}/{total_frames} frames auto-labeled.")
+    print(f"\nNext steps:")
+    print(f"  1. Auto-label board/skis: python dlc-config/auto_label_board.py --sport {sport_label}")
+    print(f"  2. Manual refinement: python dlc-config/label_frames.py --sport {sport_label}")
+    print(f"  3. Train model:       python training/train.py --sport {sport_label}")
 
 
 if __name__ == "__main__":

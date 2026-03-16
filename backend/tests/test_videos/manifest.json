@@ -1,0 +1,58 @@
+{
+  "snowboarding_01": {
+    "url": "ytsearch1:snowboarding gopro short run",
+    "sport": "snowboarding",
+    "expected_env": "snow",
+    "category": "positive",
+    "path": "/Users/anurodhsrivastava/projects/ai-snowboard-analysis/backend/tests/test_videos/cache/snowboarding_01.mp4"
+  },
+  "skiing_01": {
+    "url": "ytsearch1:skiing gopro short run pov",
+    "sport": "skiing",
+    "expected_env": "snow",
+    "category": "positive",
+    "path": "/Users/anurodhsrivastava/projects/ai-snowboard-analysis/backend/tests/test_videos/cache/skiing_01.mp4"
+  },
+  "skateboarding_01": {
+    "url": "ytsearch1:skateboarding street trick short clip",
+    "sport": "skateboarding",
+    "expected_env": "urban",
+    "category": "positive",
+    "path": "/Users/anurodhsrivastava/projects/ai-snowboard-analysis/backend/tests/test_videos/cache/skateboarding_01.mp4"
+  },
+  "surfing_01": {
+    "url": "ytsearch1:surfing gopro wave short clip",
+    "sport": "surfing",
+    "expected_env": "water",
+    "category": "positive",
+    "path": "/Users/anurodhsrivastava/projects/ai-snowboard-analysis/backend/tests/test_videos/cache/surfing_01.mp4"
+  },
+  "cooking_01": {
+    "url": "ytsearch1:cooking recipe kitchen short clip",
+    "sport": null,
+    "expected_env": "unknown",
+    "category": "unrelated",
+    "path": "/Users/anurodhsrivastava/projects/ai-snowboard-analysis/backend/tests/test_videos/cache/cooking_01.mp4"
+  },
+  "driving_01": {
+    "url": "ytsearch1:driving dashcam road short clip",
+    "sport": null,
+    "expected_env": "unknown",
+    "category": "unrelated",
+    "path": "/Users/anurodhsrivastava/projects/ai-snowboard-analysis/backend/tests/test_videos/cache/driving_01.mp4"
+  },
+  "teaching_01": {
+    "url": "ytsearch1:classroom teaching lecture short clip",
+    "sport": null,
+    "expected_env": "unknown",
+    "category": "unrelated",
+    "path": "/Users/anurodhsrivastava/projects/ai-snowboard-analysis/backend/tests/test_videos/cache/teaching_01.mp4"
+  },
+  "tennis_01": {
+    "url": "ytsearch1:tennis rally court short clip",
+    "sport": null,
+    "expected_env": "unknown",
+    "category": "unrelated",
+    "path": "/Users/anurodhsrivastava/projects/ai-snowboard-analysis/backend/tests/test_videos/cache/tennis_01.mp4"
+  }
+}

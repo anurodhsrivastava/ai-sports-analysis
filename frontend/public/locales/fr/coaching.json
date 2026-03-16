@@ -1,0 +1,82 @@
+{
+  "coaching": {
+    "kneeFlexion": {
+      "critical": "Votre genou {{leg}} est presque verrouille a {{angle}} degres. Flechissez davantage les genoux pour absorber le terrain et maintenir l'equilibre. Visez une flexion de 90 a 140 degres.",
+      "warning": "Votre genou {{leg}} devient trop tendu a {{angle}} degres. Essayez de maintenir une flexion plus athletique pour une meilleure absorption des chocs."
+    },
+    "shoulderAlignment": {
+      "critical": "Vos epaules sont tournees de {{angle}} degres par rapport a la planche. Gardez vos epaules plus alignees avec la direction de la planche pour un meilleur controle des carres et une meilleure stabilite.",
+      "warning": "Vos epaules sont legerement desaxees a {{angle}} degres. Essayez de garder le haut du corps aligne avec votre direction de deplacement."
+    },
+    "stanceWidth": {
+      "warning": "Votre position semble tres etroite. Ecartez vos pieds a la largeur des epaules environ pour une meilleure stabilite et un meilleur controle de la planche."
+    },
+    "summary": {
+      "excellent": "Excellente technique ! Aucun probleme detecte.",
+      "needsAttention": "Plusieurs problemes necessitent votre attention — concentrez-vous sur les points critiques ci-dessous.",
+      "solid": "Technique solide dans l'ensemble, avec quelques points a affiner.",
+      "decent": "Forme correcte avec quelques points à travailler."
+    }
+  },
+  "guidance": {
+    "kneeFlexion": {
+      "title": "Flechissez davantage les genoux",
+      "whatIsWrong": "Vos jambes sont trop tendues. Rider avec les genoux verrouilles rend difficile l'absorption des bosses, la direction et le maintien de l'equilibre.",
+      "howToFix": "Gardez une flexion souple et athletique dans les deux genoux tout au long de la descente. Imaginez que vous vous asseyez sur une chaise invisible — vos tibias doivent appuyer legerement contre l'avant de vos chaussures.",
+      "drillTip": "Pratiquez les « 1000 virages » a basse vitesse : a chaque virage, exagerez la flexion des genoux jusqu'a sentir une legere brulure dans les cuisses. Cela cree la memoire musculaire pour la bonne position.",
+      "idealRange": "35°–55°"
+    },
+    "shoulderAlignment": {
+      "title": "Alignez vos epaules avec la planche",
+      "whatIsWrong": "Vos epaules sont trop ouvertes (face a la pente). Cela force vos hanches a se desaligner et rend les transitions de carre a carre plus lentes.",
+      "howToFix": "Gardez vos epaules a peu pres paralleles a la planche. Votre main avant doit pointer vers le nose ; votre main arriere reste au-dessus du tail. Pensez « haut du corps calme ».",
+      "drillTip": "Tenez les deux extremites d'un baton en ridant et gardez-le parallele a la planche. Si le baton tourne, c'est que vos epaules s'ouvrent.",
+      "idealRange": "0°–15°"
+    },
+    "stanceWidth": {
+      "title": "Elargissez votre position",
+      "whatIsWrong": "Vos pieds sont trop rapproches. Une position etroite reduit la stabilite et rend plus difficile l'engagement efficace des carres.",
+      "howToFix": "Reglez vos fixations a la largeur des epaules ou legerement plus large. Votre poids doit etre reparti uniformement entre les deux pieds, les genoux au-dessus des orteils.",
+      "drillTip": "Sur terrain plat, tenez-vous sur votre planche et demandez a un ami de vous pousser doucement dans differentes directions. Elargissez votre position jusqu'a vous sentir stable face a chaque poussee.",
+      "idealRange": "Largeur des epaules"
+    }
+  },
+  "sportFacts": {
+    "snowboarding": [
+      "Le premier snowboard a ete invente en 1965 par Sherman Poppen, qui l'a appele le « Snurfer ».",
+      "Le snowboard est devenu un sport olympique en 1998 aux Jeux d'hiver de Nagano.",
+      "Les snowboardeurs professionnels peuvent atteindre des vitesses superieures a 200 km/h sur des pentes raides.",
+      "La plus longue piste de snowboard au monde fait plus de 16 km a l'Alpe d'Huez, en France.",
+      "Une bonne flexion des genoux absorbe jusqu'a 70 % de l'impact du terrain, reduisant le risque de blessure.",
+      "Garder les epaules alignees avec la planche ameliore le controle des carres de 40 %.",
+      "Les snowboardeurs professionnels s'entrainent hors saison avec le skateboard et le surf.",
+      "Le halfpipe a ete inspire a l'origine par les half-pipes de skateboard dans les annees 1980."
+    ],
+    "skiing": [
+      "Le ski remonte a plus de 5 000 ans — le plus ancien ski jamais trouve vient de Norvege.",
+      "La vitesse la plus rapide enregistree a ski est de 254,958 km/h.",
+      "Le ski alpin est un sport olympique depuis les Jeux d'hiver de 1936.",
+      "Une bonne technique de ski parallele reduit la fatigue des quadriceps jusqu'a 30 %."
+    ],
+    "skateboarding": [
+      "Le skateboard est ne en Californie a la fin des annees 1940 sous le nom de « sidewalk surfing ».",
+      "Le ollie, invente par Alan Gelfand en 1978, a revolutionne le skateboard.",
+      "Le skateboard a fait ses debuts olympiques a Tokyo en 2020.",
+      "Tony Hawk a reussi le premier 900 documente (2,5 rotations) en 1999."
+    ],
+    "surfing": [
+      "Le surf est ne dans la Polynesie ancienne et a ete documente pour la premiere fois a Hawaii.",
+      "La plus longue session de surf jamais enregistree a dure plus de 3 heures sur une vague de riviere continue.",
+      "Le surf est devenu un sport olympique aux Jeux de Tokyo 2020.",
+      "La plus grande vague jamais surfee mesurait 26,2 metres (86 pieds) a Nazare, au Portugal."
+    ],
+    "general": [
+      "L'analyse video peut ameliorer les performances athletiques de 15 a 25 % grace a la correction technique.",
+      "L'estimation de pose par IA traite jusqu'a 30 images par seconde pour un retour en temps reel.",
+      "Les athletes qui revisionnent des videos de leur performance progressent 2 fois plus vite que les autres.",
+      "Un bon alignement corporel reduit le risque de blessure jusqu'a 50 % dans tous les sports de glisse.",
+      "L'analyse des angles articulaires est utilisee par les entraineurs olympiques dans plus de 15 disciplines sportives.",
+      "Le corps humain possede plus de 360 articulations — notre IA suit les 10 plus importantes pour votre sport."
+    ]
+  }
+}

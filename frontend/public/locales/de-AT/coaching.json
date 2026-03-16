@@ -1,0 +1,82 @@
+{
+  "coaching": {
+    "kneeFlexion": {
+      "critical": "Dein {{leg}} Knie ist bei {{angle}} Grad fast durchgestreckt. Beug deine Knie stärker, um Unebenheiten abzufedern und das Gleichgewicht zu halten. Strebe 90–140 Grad Beugung an.",
+      "warning": "Dein {{leg}} Knie wird bei {{angle}} Grad recht gerade. Versuch eine sportlichere Beugehaltung für eine bessere Stoßdämpfung beizubehalten."
+    },
+    "shoulderAlignment": {
+      "critical": "Deine Schultern sind {{angle}} Grad vom Board verdreht. Halt deine Schultern stärker in Richtung des Boards ausgerichtet, um bessere Kantenkontrolle und Stabilität zu erreichen.",
+      "warning": "Deine Schultern sind bei {{angle}} Grad leicht verdreht. Versuch, deinen Oberkörper in Fahrtrichtung auszurichten."
+    },
+    "stanceWidth": {
+      "warning": "Deine Standposition schaut sehr eng aus. Stell deine Füße etwa schulterbreit auseinander, um bessere Stabilität und Boardkontrolle zu erreichen."
+    },
+    "summary": {
+      "excellent": "Ausgezeichnete Technik! Keine Probleme erkannt.",
+      "needsAttention": "Mehrere Probleme brauchen Aufmerksamkeit — konzentrier dich auf die kritischen Punkte unten.",
+      "solid": "Insgesamt solide Technik, mit ein paar Bereichen zum Verfeinern.",
+      "decent": "Ordentliche Form mit einigen Bereichen, die Arbeit brauchen."
+    }
+  },
+  "guidance": {
+    "kneeFlexion": {
+      "title": "Beug deine Knie stärker",
+      "whatIsWrong": "Deine Beine sind zu gerade. Fahren mit durchgestreckten Knien macht es schwer, Unebenheiten abzufedern, zu lenken und das Gleichgewicht zu halten.",
+      "howToFix": "Halt während der gesamten Fahrt eine weiche, sportliche Beugehaltung in beiden Knien. Stell dir vor, du setzt dich auf einen unsichtbaren Sessel — deine Schienbeine sollten leicht gegen die Vorderseite deiner Schuhe drücken.",
+      "drillTip": "Üb '1000 Schwünge' bei niedriger Geschwindigkeit: Übertreib bei jeder Kurve die Kniebeugung, bis deine Oberschenkel leicht brennen. Das trainiert das Muskelgedächtnis für die richtige Position.",
+      "idealRange": "35°–55°"
+    },
+    "shoulderAlignment": {
+      "title": "Richt deine Schultern am Board aus",
+      "whatIsWrong": "Deine Schultern sind zu weit geöffnet (talwärts gedreht). Das bringt deine Hüfte aus der Ausrichtung und macht Kantenwechsel träge.",
+      "howToFix": "Halt deine Schultern ungefähr parallel zum Board. Deine vordere Hand sollte zur Nose zeigen; deine hintere Hand bleibt über dem Tail. Denk an einen 'ruhigen Oberkörper'.",
+      "drillTip": "Halt beim Fahren einen Stock oder Stab an beiden Enden und halt ihn parallel zum Board. Wenn sich der Stab dreht, öffnen sich deine Schultern.",
+      "idealRange": "0°–15°"
+    },
+    "stanceWidth": {
+      "title": "Verbreiter deinen Stand",
+      "whatIsWrong": "Deine Füße stehen zu eng zusammen. Ein enger Stand verringert die Stabilität und macht es schwieriger, die Kanten effektiv einzusetzen.",
+      "howToFix": "Stell deine Bindungen auf Schulterbreite oder ein bissl breiter ein. Dein Gewicht sollte gleichmäßig auf beide Füße verteilt sein, wobei deine Knie über deinen Zehen ausgerichtet sein sollten.",
+      "drillTip": "Stell dich auf ebenem Boden auf dein Board und lass dich von einem Freund sanft aus verschiedenen Richtungen schubsen. Verbreiter deinen Stand, bis du gegen jeden Schubs stabil stehst.",
+      "idealRange": "Schulterbreit auseinander"
+    }
+  },
+  "sportFacts": {
+    "snowboarding": [
+      "Das erste Snowboard wurde 1965 von Sherman Poppen erfunden, der es 'Snurfer' nannte.",
+      "Snowboarden wurde 1998 bei den Olympischen Winterspielen in Nagano zur olympischen Disziplin.",
+      "Profi-Snowboarder können auf steilen Hängen Geschwindigkeiten von über 200 km/h erreichen.",
+      "Die längste Snowboard-Abfahrt der Welt ist über 16 km lang in Alpe d'Huez, Frankreich.",
+      "Richtige Kniebeugung absorbiert bis zu 70 % der Geländebelastung und verringert das Verletzungsrisiko.",
+      "Die Ausrichtung der Schultern am Board verbessert die Kantenkontrolle um 40 %.",
+      "Profi-Snowboarder trainieren in der Nebensaison mit Skateboarden und Surfen.",
+      "Die Halfpipe wurde in den 1980er Jahren von Skateboard-Halfpipes inspiriert."
+    ],
+    "skiing": [
+      "Schifahren reicht über 5.000 Jahre zurück — der älteste jemals gefundene Schi stammt aus Norwegen.",
+      "Die schnellste jemals auf Schiern gemessene Geschwindigkeit beträgt 254,958 km/h.",
+      "Alpines Schifahren ist seit den Olympischen Winterspielen 1936 eine olympische Disziplin.",
+      "Richtige Paralleltechnik beim Schifahren reduziert die Oberschenkelermüdung um bis zu 30 %."
+    ],
+    "skateboarding": [
+      "Skateboarden entstand in den späten 1940er Jahren in Kalifornien als 'Gehsteig-Surfen'.",
+      "Der Ollie, 1978 von Alan Gelfand erfunden, revolutionierte das Skateboarden.",
+      "Skateboarden feierte sein olympisches Debüt bei den Olympischen Spielen in Tokio 2020.",
+      "Tony Hawk landete 1999 den ersten dokumentierten 900er (2,5 Umdrehungen)."
+    ],
+    "surfing": [
+      "Surfen hat seinen Ursprung im alten Polynesien und wurde erstmals auf Hawaii dokumentiert.",
+      "Der längste jemals aufgezeichnete Surflauf dauerte über 3 Stunden auf einer endlosen Flusswelle.",
+      "Surfen wurde bei den Olympischen Spielen in Tokio 2020 zur olympischen Disziplin.",
+      "Die größte jemals gesurfte Welle war 26,2 Meter hoch in Nazaré, Portugal."
+    ],
+    "general": [
+      "Videoanalyse kann die sportliche Leistung durch Technikkorrektur um 15–25 % verbessern.",
+      "KI-Pose-Erkennung verarbeitet bis zu 30 Frames pro Sekunde für Echtzeit-Feedback.",
+      "Sportler, die Videos ihrer Leistung anschauen, verbessern sich doppelt so schnell wie andere.",
+      "Die richtige Körperausrichtung reduziert das Verletzungsrisiko bei allen Brettsportarten um bis zu 50 %.",
+      "Gelenkwinkelanalyse wird von olympischen Trainern in über 15 Sportdisziplinen eingesetzt.",
+      "Der menschliche Körper hat über 360 Gelenke — unsere KI verfolgt die 10 wichtigsten für deine Sportart."
+    ]
+  }
+}
